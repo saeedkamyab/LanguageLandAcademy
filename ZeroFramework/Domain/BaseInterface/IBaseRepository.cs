@@ -19,7 +19,7 @@ namespace ZeroFramework.Domain.BaseInterface
 
         List<TEntity> GetAll();
 
-        void Create(TKey entity);
+        void Create(TEntity entity);
 
         void Update(TEntity entity);
 

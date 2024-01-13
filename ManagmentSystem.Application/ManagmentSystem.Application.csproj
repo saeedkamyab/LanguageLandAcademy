@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ManagmentSystem.Application.Contract\ManagmentSystem.Application.Contract.csproj" />
-    <ProjectReference Include="..\ZeroFramework\ZeroFramework.csproj" />
+    <ProjectReference Include="..\ManagmentSystem.Domain\ManagmentSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagmentSystem.Application.Contract.Tuition.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace ManagmentSystem.Domain.TuitionAgg.Interface
 {
     public interface ITuitionRepository:IBaseRepository<long,Tuition>
     {
-
+        List<GetAllTuitions> GetAllTuitions();
     }
 }

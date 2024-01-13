@@ -33,11 +33,10 @@ namespace ManagmentSystem.Domain.TuitionAgg
 
         #region Constructor
         public Tuition(double financeAmount, bool? financeStatus, 
-            DateTime? financePayDate, string? financeDescription)
+                       string? financeDescription)
         {
             FinanceAmount = financeAmount;
             FinanceStatus = financeStatus;
-            FinancePayDate = financePayDate;
             FinanceDescription = financeDescription;
         }
         #endregion
