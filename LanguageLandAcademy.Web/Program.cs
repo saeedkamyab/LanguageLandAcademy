@@ -5,10 +5,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
-
 var con = builder.Configuration.GetConnectionString("DefaultConnection");
 ManagmentSystemBootstraper.Configure(builder.Services, con);
+
+
+var app = builder.Build();
+
+
 
 
 

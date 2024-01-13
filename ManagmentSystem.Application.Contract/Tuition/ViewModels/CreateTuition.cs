@@ -10,10 +10,10 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
         public double FinanceAmount { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
-        public bool? FinanceStatus { get; set; }
+        public bool FinanceStatus { get; set; }
 
 
-        public string? FinanceDescription { get; set; }
+        public string FinanceDescription { get; set; }
 
 
     }
