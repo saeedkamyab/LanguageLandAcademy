@@ -27,7 +27,7 @@ namespace ZeroFramework.Domain.BaseInterface
 
         bool DeleteRange(List<TEntity> entities);
 
-        bool Exists(Expression<Func<TKey, bool>> expression);
+        bool Exists(Expression<Func<TEntity, bool>> expression);
       
         void SaveChanges();
  

@@ -12,7 +12,7 @@ namespace ManagmentSystem.Application.Contract.Tuition.Interface
     {
 
 
-        List<GetAllTuitions> GetAllTuitions();
+        List<AllTuitions> GetAllTuitions();
       
         OperationResult CreateTuition(CreateTuition createTuition);
         

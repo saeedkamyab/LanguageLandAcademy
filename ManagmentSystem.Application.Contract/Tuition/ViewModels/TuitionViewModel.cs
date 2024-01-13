@@ -12,24 +12,24 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
     {
         #region Properties
 
-        public long Id { get; private set; }
+        public long Id { get;  set; }
 
-        public string CreateDate { get; private set; }
+        public string CreateDate { get;  set; }
 
         public string LastUpdate { get; set; }
 
         public bool IsRemoved { get; set; }
 
-        public double FinanceAmount { get; private set; }
+        public double FinanceAmount { get;  set; }
 
 
-        public bool? FinanceStatus { get; private set; }
+        public bool FinanceStatus { get;  set; }
 
 
-        public string? FinancePayDate { get; private set; }
+        public string FinancePayDate { get;  set; }
 
 
-        public string? FinanceDescription { get; private set; }
+        public string FinanceDescription { get;  set; }
 
         #endregion
     }

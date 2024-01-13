@@ -10,6 +10,6 @@ namespace ManagmentSystem.Domain.TuitionAgg.Interface
 {
     public interface ITuitionRepository:IBaseRepository<long,Tuition>
     {
-        List<GetAllTuitions> GetAllTuitions();
+        List<AllTuitions> GetAllTuitions();
     }
 }

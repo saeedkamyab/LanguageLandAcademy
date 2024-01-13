@@ -19,30 +19,30 @@ namespace ManagmentSystem.Domain.TuitionAgg
         public double FinanceAmount { get; private set; }
 
         [DisplayName("وضعیت")]
-        public bool? FinanceStatus { get; private set; }
+        public bool FinanceStatus { get; private set; }
 
         [DisplayName("تاریخ پرداخت")]
-        public DateTime? FinancePayDate { get; private set; }
+        public DateTime FinancePayDate { get; private set; }
 
 
         [DisplayName("توضیحات")]
         [MaxLength(250)]
-        public string? FinanceDescription { get; private set; }
+        public string FinanceDescription { get; private set; }
 
         #endregion
 
         #region Constructor
-        public Tuition(double financeAmount, bool? financeStatus, 
-                       string? financeDescription)
+        public Tuition(double financeAmount, 
+                       string financeDescription)
         {
             FinanceAmount = financeAmount;
-            FinanceStatus = financeStatus;
+            FinanceStatus = false;
             FinanceDescription = financeDescription;
         }
         #endregion
 
         #region Edit
-        public void Edit(double financeAmount, bool? financeStatus,
+        public void Edit(double financeAmount, bool financeStatus,
                          string? financeDescription)
         {
             FinanceAmount = financeAmount;

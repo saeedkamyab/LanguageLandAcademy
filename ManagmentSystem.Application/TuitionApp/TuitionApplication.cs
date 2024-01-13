@@ -23,7 +23,7 @@ namespace ManagmentSystem.Application.TuitionApp
         public OperationResult CreateTuition(CreateTuition createTuition)
         {
            var operation= new OperationResult();
-            var tuition=new Tuition(createTuition.FinanceAmount,createTuition.FinanceStatus,
+            var tuition=new Tuition(createTuition.FinanceAmount,
                 createTuition.FinanceDescription);
             _tuRep.Create(tuition);
             _tuRep.SaveChanges();
@@ -41,11 +41,11 @@ namespace ManagmentSystem.Application.TuitionApp
             return operation.Succeeded();
         }
 
-        public List<GetAllTuitions> GetAllTuitions()
+        public List<AllTuitions> GetAllTuitions()
         {
             return _tuRep.GetAllTuitions();
         }
 
-      
+       
     }
 }
