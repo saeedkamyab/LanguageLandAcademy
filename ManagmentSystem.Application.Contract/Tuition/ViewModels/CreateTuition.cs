@@ -7,13 +7,13 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
     public class CreateTuition
     {
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
-        public double FinanceAmount { get; set; }
+        public double TuitionAmount { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
-        public bool FinanceStatus { get; set; }
+        public bool TuitionStatus { get; set; }
 
 
-        public string FinanceDescription { get; set; }
+        public string TuitionDescription { get; set; }
 
 
     }

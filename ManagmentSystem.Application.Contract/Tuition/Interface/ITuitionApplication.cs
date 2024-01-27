@@ -17,6 +17,11 @@ namespace ManagmentSystem.Application.Contract.Tuition.Interface
         OperationResult CreateTuition(CreateTuition createTuition);
         
         OperationResult EditTuition(EditTuition editTuition);
+
+        OperationResult PayTuition(long Id);
+
+        OperationResult RemoveTuition(long Id);
+        OperationResult RestoreTuition(long Id);
        
      
 

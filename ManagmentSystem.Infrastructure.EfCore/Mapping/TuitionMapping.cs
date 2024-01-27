@@ -17,10 +17,10 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.HasKey(t=>t.Id);
 
             builder.Property(t=>t.CreateDate);
-            builder.Property(t=>t.FinanceAmount);
-            builder.Property(t=>t.FinanceStatus);
-            builder.Property(t=>t.FinancePayDate);
-            builder.Property(t=>t.FinanceDescription);
+            builder.Property(t=>t.TuitionAmount);
+            builder.Property(t=>t.TuitionStatus);
+            builder.Property(t=>t.TuitionPayDate);
+            builder.Property(t=>t.TuitionDescription);
             builder.Property(t=>t.IsRemoved);
             builder.Property(t=>t.LastUpdate);
 

@@ -3,3 +3,64 @@
 @{
 }
 <h1>You Are in Admin Area Tuition</h1>
+
+
+<div class="panel-heading">
+    <h3 class="panel-title">Bordered Table</h3>
+</div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>شناسه رسید مالی</th>
+                        <th>به نام</th>
+                        <th>مبلغ</th>
+                        <th>تاریخ</th>
+                        <th>وضعیت</th>
+                        <th>تاریخ پرداخت</th>
+                        <th>توضیحات</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var tu in Model.tuitions)
+                    {
+                        <tr>
+                            <td rowspan="2">1</td>
+                            <td>@tu.Id</td>
+                            <td>1003 جمیله رحیمی</td>
+                            <td>@tu.TuitionAmount</td>
+                            <td>@tu.CreateDate</td>
+                            <td>@tu.TuitionStatus</td>
+                            <td>@tu.TuitionPayDate</td>
+                            <td>@tu.TuitionDescription</td>
+                            <td>@tu.IsRemoved</td>
+                            <td>
+                            
+                                @if (tu.IsRemoved)
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@tu.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-warning m-b-5 "> <i class="fa fa-refresh"></i> </a>
+                                }
+                                else
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@tu.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-danger m-b-5 "> <i class="fa fa-trash"></i> </a>
+                                }
+                                @if (tu.TuitionStatus == false)
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Pay" asp-route-id="@tu.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-success m-b-5 "> <i class="fa fa-money"></i> </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

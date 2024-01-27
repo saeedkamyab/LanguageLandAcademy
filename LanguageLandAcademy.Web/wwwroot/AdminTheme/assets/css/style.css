@@ -65,7 +65,9 @@ body {
   margin: 0;
   -webkit-text-size-adjust: 100%;
   font-family: 'Nunito', sans-serif;
+  direction:rtl;
 }
+
 h1,
 h2,
 h3,
@@ -1343,7 +1345,7 @@ body.fixed-left .side-menu.left {
   padding-bottom: 70px;
 }
 .content-page {
-  margin-left: 240px;
+  margin-right: 240px;
   overflow: hidden;
   position: relative;
   min-height: 940px;

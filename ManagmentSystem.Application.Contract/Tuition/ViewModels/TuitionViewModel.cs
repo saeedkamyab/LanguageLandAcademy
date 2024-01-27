@@ -20,16 +20,16 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public bool IsRemoved { get; set; }
 
-        public double FinanceAmount { get;  set; }
+        public double TuitionAmount { get;  set; }
 
 
-        public bool FinanceStatus { get;  set; }
+        public bool TuitionStatus { get;  set; }
 
 
-        public string FinancePayDate { get;  set; }
+        public string TuitionPayDate { get;  set; }
 
 
-        public string FinanceDescription { get;  set; }
+        public string TuitionDescription { get;  set; }
 
         #endregion
     }

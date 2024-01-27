@@ -5,16 +5,20 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
     public class AllTuitions
     {
-        public string CreateDate { get;  set; }
-        
-        public double FinanceAmount { get;  set; }
+        public long Id { get; set; }
 
-        public bool FinanceStatus { get;  set; }
+        public string CreateDate { get; set; }
 
-        public string FinancePayDate { get;  set; }
+        public double TuitionAmount { get; set; }
 
-        public string FinanceDescription { get;  set; }
+        public bool TuitionStatus { get; set; }
+
+        public string TuitionPayDate { get; set; }
+
+        public string TuitionDescription { get; set; }
 
         public string LastUpdate { get; set; }
+
+        public bool IsRemoved { get; set; }
     }
 }

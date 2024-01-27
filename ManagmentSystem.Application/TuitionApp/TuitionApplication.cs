@@ -22,9 +22,9 @@ namespace ManagmentSystem.Application.TuitionApp
 
         public OperationResult CreateTuition(CreateTuition createTuition)
         {
-           var operation= new OperationResult();
-            var tuition=new Tuition(createTuition.FinanceAmount,
-                createTuition.FinanceDescription);
+            var operation = new OperationResult();
+            var tuition = new Tuition(createTuition.TuitionAmount,
+                createTuition.TuitionDescription);
             _tuRep.Create(tuition);
             _tuRep.SaveChanges();
             return operation.Succeeded();
@@ -36,7 +36,7 @@ namespace ManagmentSystem.Application.TuitionApp
             var tuition = _tuRep.Get(editTuition.Id);
             if (tuition == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
-            tuition.Edit(editTuition.FinanceAmount, editTuition.FinanceStatus,editTuition.FinanceDescription);
+            tuition.Edit(editTuition.TuitionAmount, editTuition.TuitionStatus, editTuition.TuitionDescription);
             _tuRep.SaveChanges();
             return operation.Succeeded();
         }
@@ -46,6 +46,37 @@ namespace ManagmentSystem.Application.TuitionApp
             return _tuRep.GetAllTuitions();
         }
 
-       
+        public OperationResult PayTuition(long Id)
+        {
+            OperationResult result = new OperationResult();
+            var tui = _tuRep.Get(Id);
+            if (tui == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            tui.Pay();
+            _tuRep.SaveChanges();
+            return result.Succeeded();
+        }
+
+        public OperationResult RemoveTuition(long Id)
+        {
+            OperationResult result = new OperationResult();
+            var tui = _tuRep.Get(Id);
+            if (tui == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            tui.Remove();
+            _tuRep.SaveChanges();
+            return result.Succeeded();
+        }
+
+        public OperationResult RestoreTuition(long Id)
+        {
+            OperationResult result = new OperationResult();
+            var tui = _tuRep.Get(Id);
+            if (tui == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            tui.Restore();
+            _tuRep.SaveChanges();
+            return result.Succeeded();
+        }
     }
 }

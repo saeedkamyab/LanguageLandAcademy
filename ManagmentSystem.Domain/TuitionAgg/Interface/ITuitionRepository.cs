@@ -11,5 +11,6 @@ namespace ManagmentSystem.Domain.TuitionAgg.Interface
     public interface ITuitionRepository:IBaseRepository<long,Tuition>
     {
         List<AllTuitions> GetAllTuitions();
+
     }
 }

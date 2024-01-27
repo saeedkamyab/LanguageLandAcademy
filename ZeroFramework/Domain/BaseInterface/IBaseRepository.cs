@@ -23,9 +23,9 @@ namespace ZeroFramework.Domain.BaseInterface
 
         void Update(TEntity entity);
 
-        bool Delete(TEntity entity);
+        //bool Delete(TEntity entity);
 
-        bool DeleteRange(List<TEntity> entities);
+        //bool DeleteRange(List<TEntity> entities);
 
         bool Exists(Expression<Func<TEntity, bool>> expression);
       

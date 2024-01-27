@@ -23,14 +23,18 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
         {
             return _context.Tuitions.Select(tu => new AllTuitions
             {
+                Id = tu.Id,
                 CreateDate = tu.CreateDate.ToString(),
-                FinanceAmount = tu.FinanceAmount,
-                FinanceDescription = tu.FinanceDescription,
-                FinancePayDate = tu.FinancePayDate.ToString(),
-                FinanceStatus = tu.FinanceStatus,
+                TuitionAmount = tu.TuitionAmount,
+                TuitionDescription = tu.TuitionDescription,
+                TuitionPayDate = tu.TuitionPayDate.ToString(),
+                TuitionStatus = tu.TuitionStatus,
+                IsRemoved = tu.IsRemoved,
                 LastUpdate = tu.LastUpdate.ToString()
             }).ToList();
             //throw new NotImplementedException();
         }
+
+     
     }
 }

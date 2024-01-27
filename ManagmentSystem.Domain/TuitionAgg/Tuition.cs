@@ -14,33 +14,33 @@ namespace ManagmentSystem.Domain.TuitionAgg
     {
         #region Properties
 
-        public double FinanceAmount { get; private set; }
+        public double TuitionAmount { get; private set; }
 
-        public bool FinanceStatus { get; private set; }
+        public bool TuitionStatus { get; private set; }
 
-        public DateTime FinancePayDate { get; private set; }
+        public DateTime TuitionPayDate { get; private set; }
 
-        public string FinanceDescription { get; private set; }
+        public string TuitionDescription { get; private set; }
 
         #endregion
 
         #region Constructor
-        public Tuition(double financeAmount, 
-                       string financeDescription)
+        public Tuition(double tuitionAmount,
+                       string tuitionDescription)
         {
-            FinanceAmount = financeAmount;
-            FinanceStatus = false;
-            FinanceDescription = financeDescription;
+            TuitionAmount = tuitionAmount;
+            TuitionStatus = false;
+            TuitionDescription = tuitionDescription;
         }
         #endregion
 
         #region Edit
-        public void Edit(double financeAmount, bool financeStatus,
-                         string financeDescription)
+        public void Edit(double tuitionAmount, bool tuitionStatus,
+                         string tuitionDescription)
         {
-            FinanceAmount = financeAmount;
-            FinanceStatus = financeStatus;
-            FinanceDescription = financeDescription;
+            TuitionAmount = tuitionAmount;
+            TuitionStatus = tuitionStatus;
+            TuitionDescription = tuitionDescription;
             LastUpdate = DateTime.Now;
         }
         #endregion
@@ -54,6 +54,14 @@ namespace ManagmentSystem.Domain.TuitionAgg
         public void Restore()
         {
             IsRemoved = false;
+        }
+        #endregion
+
+        #region Pay
+        public void Pay()
+        {
+            TuitionStatus = true;
+            TuitionPayDate = DateTime.Now;
         }
         #endregion
     }
