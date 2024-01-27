@@ -1,0 +1,20 @@
+
+.icon-cancel-circled:before { content: '\e800'; } /* '' */
+.icon-ok-circled:before { content: '\e801'; } /* '' */
+.icon-plus-circled:before { content: '\e802'; } /* '' */
+.icon-edit:before { content: '\e803'; } /* '' */
+.icon-trash-empty:before { content: '\e804'; } /* '' */
+.icon-doc-text:before { content: '\e805'; } /* '' */
+.icon-lock:before { content: '\e806'; } /* '' */
+.icon-adult:before { content: '\e807'; } /* '' */
+.icon-pencil:before { content: '\e808'; } /* '' */
+.icon-book:before { content: '\e809'; } /* '' */
+.icon-blogger:before { content: '\e80a'; } /* '' */
+.icon-money:before { content: '\e80b'; } /* '' */
+.icon-phone:before { content: '\e80c'; } /* '' */
+.icon-print:before { content: '\e80d'; } /* '' */
+.icon-vcard:before { content: '\e80e'; } /* '' */
+.icon-graduation-cap:before { content: '\f19d'; } /* '' */
+.icon-object-group:before { content: '\f247'; } /* '' */
+.icon-industry:before { content: '\f275'; } /* '' */
+.icon-wpforms:before { content: '\f298'; } /* '' */

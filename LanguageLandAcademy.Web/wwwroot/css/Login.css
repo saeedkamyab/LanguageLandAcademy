@@ -1,0 +1,89 @@
+html {
+    font-size: 14px;
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/Yekan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nazanin';
+    src: url('../fonts/BNaznnBd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    /*  background-color: #1abc9c;*/
+    background: url(../images/LoginBg.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
+}
+
+.loginCard {
+    height: 25rem;
+    width: 25rem;
+    border-radius: 1rem;
+}
+
+.loginTitle {
+    background-color: #6f5cc3;
+    padding: 0;
+    margin: 0;
+    border-radius: 1rem 1rem 0 0;
+}
+
+    .loginTitle span {
+        color: white;
+        font-family: Yekan;
+        text-align: center;
+    }
+
+.icon-parent {
+    border-radius: 0 5px 5px 0;
+    background-color: #6f5cc3;
+}
+
+.input_noRounded {
+    border-radius: 5px 0 0 5px !important;
+}
+
+.loginBtn {
+    background-color: #6f5cc3;
+    color: white;
+    width: 16.7rem;
+}
+
+    .loginBtn:hover {
+        background-color: #7d6cc9;
+    }
+
+#UserIdtxt {
+    box-shadow: none;
+    color: #51438f;
+}
+
+    #UserIdtxt::placeholder {
+        color: #51438f;
+    }
+
+#UserPass {
+    box-shadow: none;
+    color: #51438f;
+}
+
+    #UserPass::placeholder {
+        color: #51438f;
+    }
