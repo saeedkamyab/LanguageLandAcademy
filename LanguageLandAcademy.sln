@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagmentSystem.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagmentSystem.Configuration", "ManagmentSystem.Configuration\ManagmentSystem.Configuration.csproj", "{5C4DDE67-0AA8-486E-B4BE-563B5B417FF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageLandAcademy.Web", "LanguageLandAcademy.Web\LanguageLandAcademy.Web.csproj", "{B7534C73-E5EF-473D-88CF-E71E4E8D6B7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageLandAcademy.Web", "LanguageLandAcademy.Web\LanguageLandAcademy.Web.csproj", "{B7534C73-E5EF-473D-88CF-E71E4E8D6B7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

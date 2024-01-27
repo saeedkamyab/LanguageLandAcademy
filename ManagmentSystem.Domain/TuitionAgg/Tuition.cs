@@ -14,19 +14,12 @@ namespace ManagmentSystem.Domain.TuitionAgg
     {
         #region Properties
 
-        [DisplayName("مبلغ")]
-        [Required(ErrorMessage = "وارد کردن مبلغ الزامیست")]
         public double FinanceAmount { get; private set; }
 
-        [DisplayName("وضعیت")]
         public bool FinanceStatus { get; private set; }
 
-        [DisplayName("تاریخ پرداخت")]
         public DateTime FinancePayDate { get; private set; }
 
-
-        [DisplayName("توضیحات")]
-        [MaxLength(250)]
         public string FinanceDescription { get; private set; }
 
         #endregion
@@ -43,11 +36,24 @@ namespace ManagmentSystem.Domain.TuitionAgg
 
         #region Edit
         public void Edit(double financeAmount, bool financeStatus,
-                         string? financeDescription)
+                         string financeDescription)
         {
             FinanceAmount = financeAmount;
             FinanceStatus = financeStatus;
             FinanceDescription = financeDescription;
+            LastUpdate = DateTime.Now;
+        }
+        #endregion
+
+        #region Remove & Restore
+        public void Remove()
+        {
+            IsRemoved = true;
+        }
+
+        public void Restore()
+        {
+            IsRemoved = false;
         }
         #endregion
     }
