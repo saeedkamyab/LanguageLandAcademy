@@ -24,7 +24,7 @@ namespace ManagmentSystem.Application.TuitionApp
         {
             var operation = new OperationResult();
             var tuition = new Tuition(createTuition.TuitionAmount,
-                createTuition.TuitionDescription);
+                createTuition.TuitionDescription,createTuition.TuitionOwner);
             _tuRep.Create(tuition);
             _tuRep.SaveChanges();
             return operation.Succeeded();

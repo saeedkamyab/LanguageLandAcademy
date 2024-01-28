@@ -22,15 +22,19 @@ namespace ManagmentSystem.Domain.TuitionAgg
 
         public string TuitionDescription { get; private set; }
 
+        public long OwnerId { get; private set; }
+
         #endregion
 
         #region Constructor
         public Tuition(double tuitionAmount,
-                       string tuitionDescription)
+                       string tuitionDescription,
+                       long ownerId)
         {
             TuitionAmount = tuitionAmount;
             TuitionStatus = false;
             TuitionDescription = tuitionDescription;
+            OwnerId = ownerId;
         }
         #endregion
 

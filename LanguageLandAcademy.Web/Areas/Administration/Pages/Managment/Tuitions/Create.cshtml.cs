@@ -5,6 +5,10 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
 {
     public class CreateModel : PageModel
     {
+        
+
+
+
         public void OnGet()
         {
         }
