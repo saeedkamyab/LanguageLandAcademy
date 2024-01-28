@@ -1,3 +1,4 @@
+using AccountManagment.Configuration;
 using ManagmentSystem.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 var con = builder.Configuration.GetConnectionString("DefaultConnection");
+
+AccountManagementBootstrapper.Configure(builder.Services, con);
 ManagmentSystemBootstraper.Configure(builder.Services, con);
+
 
 
 var app = builder.Build();

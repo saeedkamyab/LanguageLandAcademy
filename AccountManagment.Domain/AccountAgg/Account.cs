@@ -20,6 +20,7 @@ namespace AccountManagment.Domain.AccountAgg
         public bool Gender { get; private set; }
         public string Address { get; private set; }
         public string ProfilePhoto { get; private set; }
+        public string Description { get; set; }
 
         public int RoleId { get; private set; }
         public Role Role { get; private set; }
@@ -30,7 +31,7 @@ namespace AccountManagment.Domain.AccountAgg
         public Account(string fullName, string fName,
           string nationalCode,
           bool gender, string address,
-          string profilePhoto, int roleId, string userName, string password)
+          string profilePhoto, int roleId, string userName, string password, string description)
         {
             UserName = userName;
             Password = password;
@@ -40,17 +41,19 @@ namespace AccountManagment.Domain.AccountAgg
             Gender = gender;
             Address = address;
             ProfilePhoto = profilePhoto;
+            Description = description;
+
             RoleId = roleId;
             if (roleId == 0)
                 RoleId = 2;
-
+           
         }
         #endregion
 
         #region Edit
         public void Edit(string fullname, string username, string fName,
             string nationalCode, bool gender, string address,
-          int roleId, string profilePhoto)
+          int roleId, string profilePhoto, string description)
         {
             FullName = fullname;
             UserName = username;
@@ -59,7 +62,7 @@ namespace AccountManagment.Domain.AccountAgg
             Gender= gender;
             Address= address;
             RoleId = roleId;
-
+            Description = description;
             if (!string.IsNullOrWhiteSpace(profilePhoto))
                 ProfilePhoto = profilePhoto;
         }
