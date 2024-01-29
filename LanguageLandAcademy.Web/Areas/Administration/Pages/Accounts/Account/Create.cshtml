@@ -1,0 +1,73 @@
+﻿@page
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account.CreateModel
+@{
+}
+
+<h1>ایجاد یک کاربر جدید</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+       
+            <div class="form-group m-3">
+                <label asp-for="Roles" class="control-label"></label>
+                <select class="form-control" asp-for="account.RoleId"
+                        asp-items="Model.Roles">
+                    <option value="0">نقش</option>
+                </select>
+
+                <span asp-validation-for="account.RoleId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="account.FullName" class="control-label"></label>
+                <input asp-for="account.FullName" class="form-control" />
+                <span asp-validation-for="account.FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="account.NationalCode" class="control-label"></label>
+                <input asp-for="account.NationalCode" class="form-control" />
+                <span asp-validation-for="account.NationalCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="account.FName" class="control-label"></label>
+                <input asp-for="account.FName" class="form-control" />
+                <span asp-validation-for="account.FName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group m-3">
+                <label asp-for="account.Gender" class="control-label"></label>
+                <select class="form-select" asp-for="account.Gender">
+                    <option value="True">آقا</option>
+                    <option value="False">خانم</option>
+                </select>
+                <span asp-validation-for="account.Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="account.Description" class="control-label"></label>
+                <input asp-for="account.Description" class="form-control" />
+                <span asp-validation-for="account.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group m-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

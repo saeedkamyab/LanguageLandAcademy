@@ -1,11 +1,6 @@
 ﻿using AccountManagment.Application.Contracts.RoleAppContract.ViewModels;
 using AccountManagment.Domain.RoleAgg;
 using AccountManagment.Domain.RoleAgg.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Infrastructure;
 
 namespace AccountManagment.Infrastructure.EfCore.Repositories
@@ -23,10 +18,17 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
         {
             throw new NotImplementedException();
         }
-
+        private static List<PermissionDto> MapPermissions(IEnumerable<Permission> permissions)
+        {
+            return permissions.Select(x => new PermissionDto(x.Code, x.Name)).ToList();
+        }
         public List<RoleViewModel> List()
         {
-            throw new NotImplementedException();
+            return _acMaContext.Roles.Select(x => new RoleViewModel
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
         }
     }
 }

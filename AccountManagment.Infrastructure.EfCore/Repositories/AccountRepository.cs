@@ -1,11 +1,7 @@
 ﻿using AccountManagment.Application.Contracts.AccountAppContract.ViewModels;
 using AccountManagment.Domain.AccountAgg;
 using AccountManagment.Domain.AccountAgg.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ZeroFramework.Infrastructure;
 
 namespace AccountManagment.Infrastructure.EfCore.Repositories
@@ -21,22 +17,52 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
 
         public List<AccountViewModel> GetAccounts()
         {
-            throw new NotImplementedException();
+            return _acMaContext.Accounts.Select(x => new AccountViewModel
+            {
+                Id = x.Id,
+                FullName = x.FullName
+            }).ToList();
         }
 
         public Account GetBy(string username)
         {
-            throw new NotImplementedException();
+            return _acMaContext.Accounts.FirstOrDefault(x => x.UserName == username);
         }
 
         public EditAccount GetDetails(long id)
         {
-            throw new NotImplementedException();
+            return _acMaContext.Accounts.Select(x => new EditAccount
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                RoleId = x.RoleId,
+                UserName = x.UserName
+            }).FirstOrDefault(x => x.Id == id);
         }
 
         public List<AccountViewModel> Search(AccountSearchModel searchModel)
         {
-            throw new NotImplementedException();
+            var query = _acMaContext.Accounts.Include(x => x.Role).Select(x => new AccountViewModel
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                ProfilePhoto = x.ProfilePhoto,
+                Role = x.Role.Name,
+                RoleId = x.RoleId,
+                UserName = x.UserName,
+                CreationDate = x.CreateDate.ToString()
+            });
+
+            if (!string.IsNullOrWhiteSpace(searchModel.Fullname))
+                query = query.Where(x => x.FullName.Contains(searchModel.Fullname));
+
+            if (!string.IsNullOrWhiteSpace(searchModel.Username))
+                query = query.Where(x => x.UserName.Contains(searchModel.Username));
+
+            if (searchModel.RoleId > 0)
+                query = query.Where(x => x.RoleId == searchModel.RoleId);
+
+            return query.OrderByDescending(x => x.Id).ToList();
         }
     }
 }

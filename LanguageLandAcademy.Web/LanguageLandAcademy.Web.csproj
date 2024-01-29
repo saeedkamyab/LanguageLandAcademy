@@ -18,4 +18,8 @@
     <ProjectReference Include="..\ManagmentSystem.Configuration\ManagmentSystem.Configuration.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Pages\Accounts\Role\" />
+  </ItemGroup>
+
 </Project>

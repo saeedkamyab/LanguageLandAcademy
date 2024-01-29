@@ -1,10 +1,4 @@
 ﻿using AccountManagment.Application.Contracts.AccountAppContract.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Domain.BaseInterface;
 
 namespace AccountManagment.Domain.AccountAgg.Interface

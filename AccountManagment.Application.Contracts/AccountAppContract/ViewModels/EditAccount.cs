@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Microsoft.AspNetCore.Http;
 
 namespace AccountManagment.Application.Contracts.AccountAppContract.ViewModels
 {
     public class EditAccount:RegisterAccount
     {
         public long Id { get; set; }
+        public string Address { get; set; }
+        public IFormFile ProfilePhoto { get; set; }
     }
 }

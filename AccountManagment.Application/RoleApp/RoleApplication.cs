@@ -2,11 +2,6 @@
 using AccountManagment.Application.Contracts.RoleAppContract.ViewModels;
 using AccountManagment.Domain.RoleAgg;
 using AccountManagment.Domain.RoleAgg.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Application.Common;
 
 namespace AccountManagment.Application.RoleApp
@@ -24,10 +19,10 @@ namespace AccountManagment.Application.RoleApp
         public OperationResult Create(CreateRole command)
         {
             OperationResult result = new OperationResult();
-         
+
             if (_roleRepo.Exists(x => x.Name == command.Name))
                 return result.Failed(ApplicationMessages.DuplicatedRecord);
-         
+
             var role = new Role(command.Name, new List<Permission>());
             _roleRepo.Create(role);
             _roleRepo.SaveChanges();
@@ -38,17 +33,25 @@ namespace AccountManagment.Application.RoleApp
 
         public OperationResult Edit(EditRole command)
         {
-            throw new NotImplementedException();
+            OperationResult result = new OperationResult();
+            var role = _roleRepo.Get(command.Id);
+            if (role == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            var permissions = new List<Permission>();
+            command.Permissions.ForEach(code => permissions.Add(new Permission(code)));
+             role.Edit(command.Name, permissions);
+            _roleRepo.SaveChanges();
+            return result.Succeeded();
         }
 
-        public EditRole GetDetails(long id)
+        public EditRole GetDetails(int id)
         {
-            throw new NotImplementedException();
+           return _roleRepo.GetDetails(id);
         }
 
         public List<RoleViewModel> List()
         {
-            throw new NotImplementedException();
+            return _roleRepo.List();
         }
     }
 }

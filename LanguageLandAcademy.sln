@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagment.Application.Contracts", "AccountManagment.Application.Contracts\AccountManagment.Application.Contracts.csproj", "{4553D51E-8F90-41D7-8C9A-EC9CA8A8E0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagment.Application", "AccountManagment.Application\AccountManagment.Application.csproj", "{6BC146A1-8E72-4646-9EAB-8FAE7F95D375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagment.Application", "AccountManagment.Application\AccountManagment.Application.csproj", "{6BC146A1-8E72-4646-9EAB-8FAE7F95D375}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Infrastructure", "AM.Infrastructure", "{4D9E36F5-E1C2-45EC-BFAA-8840D2100777}"
 EndProject
@@ -55,9 +55,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCore", "EfCore", "{18EF1959-F789-472B-9DB3-CBD175F57E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagment.Infrastructure.EfCore", "AccountManagment.Infrastructure.EfCore\AccountManagment.Infrastructure.EfCore.csproj", "{C3B43B11-DC3C-4049-AD11-BB894AD7573B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagment.Infrastructure.EfCore", "AccountManagment.Infrastructure.EfCore\AccountManagment.Infrastructure.EfCore.csproj", "{C3B43B11-DC3C-4049-AD11-BB894AD7573B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagment.Configuration", "AccountManagment.Configuration\AccountManagment.Configuration.csproj", "{7D8D01E0-2944-4481-9D7D-836E7C7D06AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagment.Configuration", "AccountManagment.Configuration\AccountManagment.Configuration.csproj", "{7D8D01E0-2944-4481-9D7D-836E7C7D06AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

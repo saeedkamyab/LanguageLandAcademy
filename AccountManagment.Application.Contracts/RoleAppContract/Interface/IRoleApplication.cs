@@ -1,10 +1,4 @@
 ﻿using AccountManagment.Application.Contracts.RoleAppContract.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Application.Common;
 
 namespace AccountManagment.Application.Contracts.RoleAppContract.Interface
@@ -14,6 +8,6 @@ namespace AccountManagment.Application.Contracts.RoleAppContract.Interface
         OperationResult Create(CreateRole command);
         OperationResult Edit(EditRole command);
         List<RoleViewModel> List();
-        EditRole GetDetails(long id);
+        EditRole GetDetails(int id);
     }
 }
