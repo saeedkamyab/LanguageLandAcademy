@@ -24,11 +24,11 @@ namespace AccountManagment.Infrastructure.EfCore.Mapping
 
             builder.Property(x=>x.Gender).IsRequired();
 
-            builder.Property(x=>x.Address).HasMaxLength(250);
+            builder.Property(x=>x.Address).HasMaxLength(250).IsRequired(false);
 
-            builder.Property(x=>x.ProfilePhoto).HasMaxLength(500);
+            builder.Property(x=>x.ProfilePhoto).HasMaxLength(500).IsRequired(false);
 
-            builder.Property(x=>x.Description).HasMaxLength(1000);
+            builder.Property(x=>x.Description).HasMaxLength(1000).IsRequired(false);
 
             builder.HasOne(x=>x.Role).WithMany(x=>x.Accounts).HasForeignKey(x=>x.RoleId);
    

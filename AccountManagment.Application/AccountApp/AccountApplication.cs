@@ -18,7 +18,7 @@ namespace AccountManagment.Application.AccountApp
         public AccountApplication(IPasswordHasher passHasher, IFileUploader fileUploader,
             IAccountRepository accountRep, IRoleRepository roleRep, IAuthHelper authHelper)
         {
-            _passHasher = passHasher;
+            //_passHasher = passHasher;
             _fileUploader = fileUploader;
             _accountRep = accountRep;
             _roleRep = roleRep;
@@ -30,10 +30,10 @@ namespace AccountManagment.Application.AccountApp
             OperationResult result = new OperationResult();
 
             var username = UsNPassGenerator.GenerateUserName();
-            var pass = UsNPassGenerator.GeneratePass(command.NationalCode);
+            var pass =UsNPassGenerator.GeneratePass(command.NationalCode);
 
             var account = new Account(command.FullName, command.FName,
-                command.NationalCode, command.Gender, "s", "s", command.RoleId,
+                command.NationalCode, command.Gender, null, null, command.RoleId,
                 username, pass, command.Description);
 
             _accountRep.Create(account);
@@ -51,6 +51,7 @@ namespace AccountManagment.Application.AccountApp
                 return operation.Failed(ApplicationMessages.PasswordsNotMatch);
 
             var password = _passHasher.Hash(command.Password);
+        
             account.ChangePassword(password);
             _accountRep.SaveChanges();
             return operation.Succeeded();
@@ -70,6 +71,7 @@ namespace AccountManagment.Application.AccountApp
             var path = $"profilePhotos";
 
             var picturePath = _fileUploader.Upload(command.ProfilePhoto, path);
+    
           
             account.Edit(command.FullName, command.UserName,command.FName
                 ,command.NationalCode,command.Gender,command.Address, command.RoleId, picturePath,command.Description);
@@ -103,9 +105,10 @@ namespace AccountManagment.Application.AccountApp
             if (account == null)
                 return operation.Failed(ApplicationMessages.WrongUserPass);
 
-            var result = _passHasher.Check(account.Password, command.Password);
-            if (!result.Verified)
-                return operation.Failed(ApplicationMessages.WrongUserPass);
+            //var result = account.Password, command.Password;
+            ////var result = _passHasher.Check(account.Password, command.Password);
+            //if (!result.Verified)
+            //    return operation.Failed(ApplicationMessages.WrongUserPass);
 
             var permissions = _roleRep.Get(account.RoleId)
                 .Permissions
