@@ -185,3 +185,7 @@ body {
     border-radius:50%;
    
     }
+
+    .LeftTorightItems{
+        direction:ltr
+    }

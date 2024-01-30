@@ -39,6 +39,9 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.Property<DateTime>("LastUpdate")
                         .HasColumnType("datetime2");
 
+                    b.Property<long>("OwnerId")
+                        .HasColumnType("bigint");
+
                     b.Property<double>("TuitionAmount")
                         .HasColumnType("float");
 

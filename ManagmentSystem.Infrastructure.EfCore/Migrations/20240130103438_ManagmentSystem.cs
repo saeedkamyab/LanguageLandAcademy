@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class initaliDb : Migration
+    public partial class ManagmentSystem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FinanceAmount = table.Column<double>(type: "float", nullable: false),
-                    FinanceStatus = table.Column<bool>(type: "bit", nullable: false),
-                    FinancePayDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FinanceDescription = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    TuitionAmount = table.Column<double>(type: "float", nullable: false),
+                    TuitionStatus = table.Column<bool>(type: "bit", nullable: false),
+                    TuitionPayDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TuitionDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OwnerId = table.Column<long>(type: "bigint", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false)

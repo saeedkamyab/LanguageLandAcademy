@@ -1,8 +1,4 @@
-﻿
-
-
-using Microsoft.AspNetCore.Http;
-
+﻿using Microsoft.AspNetCore.Http;
 namespace ZeroFramework.Application.Common
 {
     public interface IFileUploader

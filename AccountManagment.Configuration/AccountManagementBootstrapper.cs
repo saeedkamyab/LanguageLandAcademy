@@ -7,6 +7,7 @@ using AccountManagment.Domain.RoleAgg.Interface;
 using AccountManagment.Infrastructure.EfCore;
 using AccountManagment.Infrastructure.EfCore.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AccountManagment.Configuration
@@ -21,7 +22,11 @@ namespace AccountManagment.Configuration
             services.AddTransient<IRoleApplication, RoleApplication>();
             services.AddTransient<IRoleRepository, RoleRepository>();
 
+
+
             services.AddDbContext<AccountManagmentContext>(x => x.UseSqlServer(connectionString));
         }
     }
+
+    
 }

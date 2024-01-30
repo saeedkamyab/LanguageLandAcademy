@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccountManagment.Infrastructure.EfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class AccountMig : Migration
+    public partial class AccountManagment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,9 +39,9 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                     FName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     NationalCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Gender = table.Column<bool>(type: "bit", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    ProfilePhoto = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
+                    ProfilePhoto = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -62,18 +62,17 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                 name: "RolePermissions",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<long>(type: "bigint", nullable: false),
-                    RoleId1 = table.Column<int>(type: "int", nullable: false)
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RolePermissions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RolePermissions_Roles_RoleId1",
-                        column: x => x.RoleId1,
+                        name: "FK_RolePermissions_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -85,9 +84,9 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RolePermissions_RoleId1",
+                name: "IX_RolePermissions_RoleId",
                 table: "RolePermissions",
-                column: "RoleId1");
+                column: "RoleId");
         }
 
         /// <inheritdoc />

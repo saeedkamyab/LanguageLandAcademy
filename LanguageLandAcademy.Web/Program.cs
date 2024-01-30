@@ -1,5 +1,8 @@
 using AccountManagment.Configuration;
+using LanguageLandAcademy.Web;
 using ManagmentSystem.Configuration;
+using ZeroFramework.Application;
+using ZeroFramework.Application.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,10 +11,12 @@ builder.Services.AddRazorPages();
 
 var con = builder.Configuration.GetConnectionString("DefaultConnection");
 
-AccountManagementBootstrapper.Configure(builder.Services, con);
 ManagmentSystemBootstraper.Configure(builder.Services, con);
+AccountManagementBootstrapper.Configure(builder.Services, con);
 
-
+//builder.Services.AddTransient<IAuthHelper, AuthHelper>();
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
+builder.Services.AddTransient<IFileUploader, FileUploader>();
 
 var app = builder.Build();
 

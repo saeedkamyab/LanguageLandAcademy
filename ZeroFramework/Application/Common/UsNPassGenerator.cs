@@ -14,9 +14,9 @@ namespace ZeroFramework.Application.Common
             var username = "User_" + DateTime.Now.Second.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Month.ToString("00");
             return username;
         }
-        public static string GeneratePass(string nCode)
+        public static string GeneratePass(string nationalCode)
         {
-            var pass = "@UsPass_"+ nCode + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00") +DateTime.Now.Hour.ToString("00");
+            var pass = "@Pass_"+nationalCode+ DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
             return pass;
         }
     }

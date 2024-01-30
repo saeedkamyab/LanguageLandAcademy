@@ -2,7 +2,6 @@
 using AccountManagment.Domain.RoleAgg;
 using AccountManagment.Infrastructure.EfCore.Mapping;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AccountManagment.Infrastructure.EfCore
 {
-    public class AccountManagmentContext:DbContext
+    public class AccountManagmentContext : DbContext
     {
         public AccountManagmentContext(DbContextOptions<AccountManagmentContext> options) : base(options)
         {

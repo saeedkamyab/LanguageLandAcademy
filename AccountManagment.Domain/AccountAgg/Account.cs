@@ -25,7 +25,7 @@ namespace AccountManagment.Domain.AccountAgg
         public Account(string fullName, string fName,
           string nationalCode,
           bool gender, string address,
-          string profilePhoto, int roleId, string userName, string password, string description)
+          int roleId, string userName, string password, string description)
         {
             UserName = userName;
             Password = password;
@@ -34,13 +34,12 @@ namespace AccountManagment.Domain.AccountAgg
             NationalCode = nationalCode;
             Gender = gender;
             Address = address;
-            ProfilePhoto = profilePhoto;
             Description = description;
 
             RoleId = roleId;
             if (roleId == 0)
                 RoleId = 2;
-           
+
         }
         #endregion
 
@@ -51,10 +50,10 @@ namespace AccountManagment.Domain.AccountAgg
         {
             FullName = fullname;
             UserName = username;
-            FName= fName;
-            NationalCode= nationalCode;
-            Gender= gender;
-            Address= address;
+            FName = fName;
+            NationalCode = nationalCode;
+            Gender = gender;
+            Address = address;
             RoleId = roleId;
             Description = description;
             if (!string.IsNullOrWhiteSpace(profilePhoto))

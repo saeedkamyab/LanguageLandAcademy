@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 {
     [DbContext(typeof(ManagmentSystemContext))]
-    [Migration("20240127042832_editTuitionFieldNames")]
-    partial class editTuitionFieldNames
+    [Migration("20240130103438_ManagmentSystem")]
+    partial class ManagmentSystem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,9 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 
                     b.Property<DateTime>("LastUpdate")
                         .HasColumnType("datetime2");
+
+                    b.Property<long>("OwnerId")
+                        .HasColumnType("bigint");
 
                     b.Property<double>("TuitionAmount")
                         .HasColumnType("float");

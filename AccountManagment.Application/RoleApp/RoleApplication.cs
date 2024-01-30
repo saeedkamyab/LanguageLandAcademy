@@ -37,6 +37,7 @@ namespace AccountManagment.Application.RoleApp
             var role = _roleRepo.Get(command.Id);
             if (role == null)
                 return result.Failed(ApplicationMessages.RecordNotFound);
+
             var permissions = new List<Permission>();
             command.Permissions.ForEach(code => permissions.Add(new Permission(code)));
              role.Edit(command.Name, permissions);

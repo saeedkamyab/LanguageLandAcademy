@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountManagment.Infrastructure.EfCore.Migrations
 {
     [DbContext(typeof(AccountManagmentContext))]
-    [Migration("20240128130028_AccountMig")]
-    partial class AccountMig
+    [Migration("20240130103543_AccountManagment")]
+    partial class AccountManagment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,6 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -42,7 +41,6 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
@@ -76,7 +74,6 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                         .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("ProfilePhoto")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -137,29 +134,26 @@ namespace AccountManagment.Infrastructure.EfCore.Migrations
                 {
                     b.OwnsMany("AccountManagment.Domain.RoleAgg.Permission", "Permissions", b1 =>
                         {
-                            b1.Property<long>("Id")
+                            b1.Property<int>("Id")
                                 .ValueGeneratedOnAdd()
-                                .HasColumnType("bigint");
+                                .HasColumnType("int");
 
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<long>("Id"));
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
 
                             b1.Property<int>("Code")
                                 .HasColumnType("int");
 
-                            b1.Property<long>("RoleId")
-                                .HasColumnType("bigint");
-
-                            b1.Property<int>("RoleId1")
+                            b1.Property<int>("RoleId")
                                 .HasColumnType("int");
 
                             b1.HasKey("Id");
 
-                            b1.HasIndex("RoleId1");
+                            b1.HasIndex("RoleId");
 
                             b1.ToTable("RolePermissions", (string)null);
 
                             b1.WithOwner("Role")
-                                .HasForeignKey("RoleId1");
+                                .HasForeignKey("RoleId");
 
                             b1.Navigation("Role");
                         });
