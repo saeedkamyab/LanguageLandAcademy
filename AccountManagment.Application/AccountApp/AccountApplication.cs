@@ -13,16 +13,16 @@ namespace AccountManagment.Application.AccountApp
         private readonly IFileUploader _fileUploader;
         private readonly IAccountRepository _accountRep;
         private readonly IRoleRepository _roleRep;
-        //private readonly IAuthHelper _authHelper;
-       
+        private readonly IAuthHelper _authHelper;
+
         public AccountApplication(IAccountRepository accountRep, IPasswordHasher passHasher, IFileUploader fileUploader,
-          IRoleRepository roleRep/*, IAuthHelper authHelper*/)
+          IRoleRepository roleRep, IAuthHelper authHelper)
         {
             _passHasher = passHasher;
             _fileUploader = fileUploader;
             _accountRep = accountRep;
             _roleRep = roleRep;
-            //_authHelper = authHelper;
+            _authHelper = authHelper;
         }
 
         public AccountApplication()
@@ -32,7 +32,7 @@ namespace AccountManagment.Application.AccountApp
         public OperationResult Register(RegisterAccount command)
         {
             OperationResult result = new OperationResult();
-            var pass =command.Password;
+            var pass = command.Password;
             pass = _passHasher.Hash(pass);
             var account = new Account(command.FullName, command.FName,
                 command.NationalCode, command.Gender, null, command.RoleId,
@@ -53,7 +53,7 @@ namespace AccountManagment.Application.AccountApp
                 return operation.Failed(ApplicationMessages.PasswordsNotMatch);
 
             var password = _passHasher.Hash(command.Password);
-        
+
             account.ChangePassword(password);
             _accountRep.SaveChanges();
             return operation.Succeeded();
@@ -73,10 +73,10 @@ namespace AccountManagment.Application.AccountApp
             var path = $"profilePhotos";
 
             var picturePath = _fileUploader.Upload(command.ProfilePhoto, path);
-    
-          
-            account.Edit(command.FullName, command.UserName,command.FName
-                ,command.NationalCode,command.Gender,command.Address, command.RoleId, picturePath,command.Description);
+
+
+            account.Edit(command.FullName, command.UserName, command.FName
+                , command.NationalCode, command.Gender, command.Address, command.RoleId, picturePath, command.Description);
             _accountRep.SaveChanges();
             return operation.Succeeded();
         }
@@ -103,30 +103,30 @@ namespace AccountManagment.Application.AccountApp
         public OperationResult Login(Login command)
         {
             var operation = new OperationResult();
-            //var account = _accountRep.GetBy(command.Username);
-            //if (account == null)
-            //    return operation.Failed(ApplicationMessages.WrongUserPass);
+            var account = _accountRep.GetBy(command.Username);
+            if (account == null)
+                return operation.Failed(ApplicationMessages.WrongUserPass);
+             
+           var result = _passHasher.Check(account.Password, command.Password);
+            if (!result.Verified)
+                return operation.Failed(ApplicationMessages.WrongUserPass);
 
-            ////var result = account.Password, command.Password;
-            //////var result = _passHasher.Check(account.Password, command.Password);
-            ////if (!result.Verified)
-            ////    return operation.Failed(ApplicationMessages.WrongUserPass);
 
-            //var permissions = _roleRep.Get(account.RoleId)
-            //    .Permissions
-            //    .Select(x => x.Code)
-            //    .ToList();
+            var permissions = _roleRep.Get(account.RoleId)
+                .Permissions
+                .Select(x => x.Code)
+                .ToList();
 
-            //var authViewModel = new AuthViewModel(account.Id, account.RoleId, account.FullName
-            //    , account.UserName,  permissions);
+            var authViewModel = new AuthViewModel(account.Id, account.RoleId, account.FullName
+                , account.UserName ,permissions);
 
-            //_authHelper.Signin(authViewModel);
+            _authHelper.Signin(authViewModel);
             return operation.Succeeded();
         }
 
         public void Logout()
         {
-            //_authHelper.SignOut();
+            _authHelper.SignOut();
         }
 
 
@@ -134,7 +134,7 @@ namespace AccountManagment.Application.AccountApp
         public List<AccountViewModel> Search(AccountSearchModel searchModel)
         {
             return _accountRep.Search(searchModel);
-          
+
         }
     }
 }

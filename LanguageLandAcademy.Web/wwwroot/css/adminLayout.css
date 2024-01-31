@@ -186,6 +186,9 @@ body {
    
     }
 
-    .LeftTorightItems{
+    .LeftToRightItems{
         direction:ltr
     }
+.RightToLeftItems {
+    direction: rtl
+}
