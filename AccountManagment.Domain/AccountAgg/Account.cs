@@ -44,7 +44,7 @@ namespace AccountManagment.Domain.AccountAgg
         #endregion
 
         #region Edit
-        public void Edit(string fullname, string username, string fName,
+        public void Edit(string fullname, string username, string pass, string fName,
             string nationalCode, bool gender, string address,
           int roleId, string profilePhoto, string description)
         {
@@ -58,15 +58,12 @@ namespace AccountManagment.Domain.AccountAgg
             Description = description;
             if (!string.IsNullOrWhiteSpace(profilePhoto))
                 ProfilePhoto = profilePhoto;
+            if (!string.IsNullOrWhiteSpace(pass))
+                Password = pass;
         }
         #endregion
 
-        #region ChangePass
-        public void ChangePassword(string password)
-        {
-            Password = password;
-        }
-        #endregion
+       
 
     }
 }

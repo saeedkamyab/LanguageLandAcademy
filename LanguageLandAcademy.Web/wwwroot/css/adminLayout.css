@@ -72,7 +72,7 @@ body {
         }
 
     .wrapper .sideBar ul {
-        padding:0;
+        padding: 0;
     }
 
         .wrapper .sideBar ul li a {
@@ -89,7 +89,7 @@ body {
                 color: white;
                 display: inline-block;
                 width: 30px;
-                margin-left:25px;
+                margin-left: 25px;
             }
 
             /*link hover*/
@@ -134,7 +134,7 @@ body {
 
 .tableBtn {
     color: #6f5cc3;
-    font-size:1.2rem;
+    font-size: 1.2rem;
 }
 /*users part*/
 .table {
@@ -157,7 +157,7 @@ body {
         font-weight: 200;
     }
 
-.filterUser button{
+.filterUser button {
     color: #6f5cc3;
 }
 /*.filterUser button.active{
@@ -166,29 +166,36 @@ body {
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: transparent;
     border-bottom: 3px solid #6f5cc3;
-    border-radius:0;
+    border-radius: 0;
     color: #6f5cc3;
 }
 
 
 /*user detial page styles*/
-.Main{
-
+.Main {
 }
-    .Main .title{
-        width:100%;
-        height:10%;
-    }
-    .Main .title img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-   
+
+    .Main .title {
+        width: 100%;
+        height: 10%;
     }
 
-    .LeftToRightItems{
-        direction:ltr
-    }
+        .Main .title img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+.LeftToRightItems {
+    direction: ltr
+}
+
 .RightToLeftItems {
     direction: rtl
+}
+
+.profilePhoto {
+    width: 60px;
+    height: 60px;
+    border-radius: 180%;
 }

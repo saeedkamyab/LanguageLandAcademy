@@ -12,6 +12,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
         private readonly IRoleApplication _roleApplication;
         private readonly IAccountApplication _accountApplication;
         public SelectList Roles;
+
         public EditModel(IRoleApplication roleApplication, IAccountApplication accountApplication)
         {
             _roleApplication = roleApplication;
@@ -21,10 +22,20 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
 
         [BindProperty]
         public EditAccount account { get; set; }
+
         public void OnGet(long id)
         {
-            var account = _accountApplication.GetDetails(id);
+            account = _accountApplication.GetDetails(id);
             Roles = new SelectList(_roleApplication.List(), "Id", "Name");
+        }
+        public IActionResult OnPostEdit()
+        {
+            var result = _accountApplication.Edit(account);
+            if (result.IsSucceeded)
+            {
+                return RedirectToPage("/Accounts/Account/Index", null);
+            }
+            return RedirectToPage("./Edit",new{ account.Id });
         }
     }
 }

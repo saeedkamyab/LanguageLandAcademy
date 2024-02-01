@@ -35,8 +35,13 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
             {
                 Id = x.Id,
                 FullName = x.FullName,
+                UserName = x.UserName,
+                FName=x.FName,
+                NationalCode=x.NationalCode,
+                Address=x.Address,
+                Description=x.Description,
                 RoleId = x.RoleId,
-                UserName = x.UserName
+        
             }).FirstOrDefault(x => x.Id == id);
         }
 

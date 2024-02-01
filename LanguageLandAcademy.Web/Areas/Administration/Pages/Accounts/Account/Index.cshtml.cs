@@ -9,8 +9,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
 {
     public class IndexModel : PageModel
     {
-        //[TempData]
-        public string Message {  get; set; }
+
         public AccountSearchModel searchModel;
         public List<AccountViewModel> accounts;
         public SelectList Roles;

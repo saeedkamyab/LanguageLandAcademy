@@ -33,3 +33,22 @@ $(document).ready(function () {
     var uName = "@User_" + d.getSeconds() + d.getMinutes() + d.getHours() + d.getMonth();
     username.value = uName;
 });
+
+function passRePassCheck() {
+    var txtPass = document.getElementById("txtPass").value;
+    var txtRePass = document.getElementById("txtRePass").value;
+    var txtError = document.getElementById("checkError");
+    if (txtPass != txtRePass) {
+        txtError.innerHTML = "گذرواژه و تکرار آن مطابقت ندارد";
+        txtError.className = "text-danger";
+    }
+
+    else
+    {
+        txtError.innerHTML = "گذرواژه و تکرار آن مطابقت دارد.";
+        txtError.className = "text-success";
+    }
+       
+
+
+} 

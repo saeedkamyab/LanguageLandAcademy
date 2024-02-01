@@ -3,12 +3,13 @@
 @{
 }
 
-<form asp-page="./Index" asp-page-handler="Edit"
+<form asp-page="./Edit" asp-page-handler="Edit"
       method="post"
       data-ajax="true"
       data-callback=""
       data-action="Refresh"
       enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="modal-body">
         <div class="row">
             <div class="col-md-6">
@@ -21,8 +22,50 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="account.UserName" class="control-label">نام کاربری</label>
-                    <input type="text" class="form-control" asp-for="account.UserName">
+                    <input type="text" class="form-control LeftToRightItems" asp-for="account.UserName">
                     <span asp-validation-for="account.UserName" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.FName" class="control-label">نام پدر</label>
+                    <input type="text" class="form-control" asp-for="account.FName">
+                    <span asp-validation-for="account.FName" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.NationalCode" class="control-label">کد ملی</label>
+                    <input type="text" class="form-control" asp-for="account.NationalCode">
+                    <span asp-validation-for="account.NationalCode" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.Address" class="control-label">آدرس</label>
+                    <textarea type="text" class="form-control" asp-for="account.Address">
+                        </textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.Description" class="control-label">توضیحات</label>
+                    <textarea type="text" class="form-control" asp-for="account.Description">
+                        </textarea>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.Password"  class="control-label">گذرواژه</label>
+                    <input type="password" class="form-control" id="txtPass" asp-for="account.Password">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="account.RePassword" class="control-label">تکرار گذرواژه</label>
+                    <input type="password" id="txtRePass" class="form-control" onkeyup="passRePassCheck()" asp-for="account.RePassword">
+                    <span id="checkError" class="error m-2" ></span>
                 </div>
             </div>
 
@@ -40,14 +83,21 @@
                     <div class="form-group">
                         <label asp-for="account.ProfilePhoto" class="control-label">عکس پروفایل</label>
                         <input type="file" class="form-control" asp-for="account.ProfilePhoto" accept="image/*">
-                        <span asp-validation-for="account.ProfilePhoto" class="error"></span>
                     </div>
                 </div>
             </div>
             <input type="hidden" asp-for="account.Id" value="@Model.account.Id" />
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+            <a asp-page="/Accounts/Account/Index" asp-area="Administration" class="btn btn-default waves-effect" data-dismiss="modal">بستن</a>
             <button type="submit" class="btn btn-info waves-effect waves-light">ویرایش</button>
         </div>
 </form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+   
+}

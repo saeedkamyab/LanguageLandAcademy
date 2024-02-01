@@ -42,27 +42,15 @@ namespace AccountManagment.Application.AccountApp
             _accountRep.SaveChanges();
             return result.Succeeded();
         }
-        public OperationResult ChangePassword(ChangePassword command)
-        {
-            var operation = new OperationResult();
-            var account = _accountRep.Get(command.Id);
-            if (account == null)
-                return operation.Failed(ApplicationMessages.RecordNotFound);
 
-            if (command.Password != command.RePassword)
-                return operation.Failed(ApplicationMessages.PasswordsNotMatch);
-
-            var password = _passHasher.Hash(command.Password);
-
-            account.ChangePassword(password);
-            _accountRep.SaveChanges();
-            return operation.Succeeded();
-        }
 
         public OperationResult Edit(EditAccount command)
         {
             var operation = new OperationResult();
+            string password = null;
+
             var account = _accountRep.Get(command.Id);
+
             if (account == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
@@ -70,12 +58,20 @@ namespace AccountManagment.Application.AccountApp
                 (x.UserName == command.UserName) && x.Id != command.Id))
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
-            var path = $"profilePhotos";
+            if (command.Password != null)
+            {
+                if (command.Password != command.RePassword)
+                    return operation.Failed(ApplicationMessages.PasswordsNotMatch);
+                password = _passHasher.Hash(command.Password);
+            }
+
+            //var path = $"";
+            var path = command.Id.ToString();
 
             var picturePath = _fileUploader.Upload(command.ProfilePhoto, path);
 
 
-            account.Edit(command.FullName, command.UserName, command.FName
+            account.Edit(command.FullName, command.UserName, password, command.FName
                 , command.NationalCode, command.Gender, command.Address, command.RoleId, picturePath, command.Description);
             _accountRep.SaveChanges();
             return operation.Succeeded();
@@ -106,8 +102,8 @@ namespace AccountManagment.Application.AccountApp
             var account = _accountRep.GetBy(command.Username);
             if (account == null)
                 return operation.Failed(ApplicationMessages.WrongUserPass);
-             
-           var result = _passHasher.Check(account.Password, command.Password);
+
+            var result = _passHasher.Check(account.Password, command.Password);
             if (!result.Verified)
                 return operation.Failed(ApplicationMessages.WrongUserPass);
 
@@ -118,7 +114,7 @@ namespace AccountManagment.Application.AccountApp
                 .ToList();
 
             var authViewModel = new AuthViewModel(account.Id, account.RoleId, account.FullName
-                , account.UserName ,permissions);
+                , account.UserName, permissions);
 
             _authHelper.Signin(authViewModel);
             return operation.Succeeded();
@@ -128,8 +124,6 @@ namespace AccountManagment.Application.AccountApp
         {
             _authHelper.SignOut();
         }
-
-
 
         public List<AccountViewModel> Search(AccountSearchModel searchModel)
         {

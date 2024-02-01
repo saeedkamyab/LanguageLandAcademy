@@ -15,7 +15,7 @@ namespace LanguageLandAcademy.Web
         {
             if (file == null) return "";
 
-            var directoryPath = $"{_webHostEnvironment.WebRootPath}//ProductPictures//{path}";
+            var directoryPath = $"{_webHostEnvironment.WebRootPath}//ProfilePictures//{path}";
 
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);

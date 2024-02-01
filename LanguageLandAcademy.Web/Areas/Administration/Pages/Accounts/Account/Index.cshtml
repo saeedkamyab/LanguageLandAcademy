@@ -75,16 +75,16 @@
                                     <td>
                                         @if (item.ProfilePhoto == null)
                                         {
-                                            <img src="~/images/unImage.png" style="width: 70px; height: 70px" />
+                                            <img src="~/images/unImage.png" class="profilePhoto" />
                                         }
                                         else
                                         {
-                                            <img src="~/ProductPictures/@item.ProfilePhoto" style="width: 70px; height: 70px" />
+                                            <img src="~/ProfilePictures/@item.ProfilePhoto" class="profilePhoto"/>
                                         }
 
                                     </td>
                                     <td>@item.FullName</td>
-                                    <td class="LeftTorightItems">@item.UserName</td>
+                                    <td class="LeftToRightItems">@item.UserName</td>
                                     <td>@item.Role</td>
                                     <td>@item.CreationDate</td>
                                     <td>
