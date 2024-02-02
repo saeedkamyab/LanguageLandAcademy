@@ -27,11 +27,13 @@ namespace AccountManagment.Application.Contracts.AccountAppContract.ViewModels
         public string NationalCode { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
-        public bool Gender { get; set; }
+        public bool   Gender { get; set; }
     
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        public int RoleId { get; set; }
+
+        //Relation
+        public int    RoleId { get; set; }
         public List<RoleViewModel> Roles { get; set; }
 
     }

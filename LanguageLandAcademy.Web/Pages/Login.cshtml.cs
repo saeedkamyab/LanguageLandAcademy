@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZeroFramework.Application.Common;
 
-namespace LanguageLandAcademy.Web.Areas.Administration.Pages
+namespace LanguageLandAcademy.Web.Pages
 {
     public class LoginModel : PageModel
     {
@@ -31,7 +31,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages
         {
             var result = _accApp.Login(login);
             if (result.IsSucceeded)
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Index", new { area = "Administration" });
 
             return RedirectToPage("/Login", result);
         }

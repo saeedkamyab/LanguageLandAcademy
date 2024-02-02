@@ -3,9 +3,9 @@
     public static class Roles
     {
         public const string Administrator = "1";
-        public const string SystemUser = "2";
-        public const string ContentUploader = "3";
-        public const string ColleagueUser = "10002";
+        public const string Clerck = "2";
+        public const string Teacher = "3";
+        public const string Student = "4";
         
         public static string GetRoleBy(long id)
         {
@@ -13,8 +13,12 @@
             {
                 case 1:
                     return "مدیرسیستم";
+                case 2:
+                    return "کارمند";
                 case 3:
-                    return "محتوا گذار";
+                    return "مدرس";
+                case 4:
+                    return "زبان آموز";
                 default:
                     return "";
             }

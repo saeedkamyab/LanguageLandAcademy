@@ -1,17 +1,21 @@
 using AccountManagment.Application.Contracts.AccountAppContract.Interface;
 using AccountManagment.Application.Contracts.AccountAppContract.ViewModels;
 using AccountManagment.Application.Contracts.RoleAppContract.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
 
         public AccountSearchModel searchModel;
+
         public List<AccountViewModel> accounts;
+
         public SelectList Roles;
 
         public readonly IRoleApplication _roleApplication;

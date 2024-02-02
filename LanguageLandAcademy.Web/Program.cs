@@ -32,10 +32,29 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>
                {
                    o.LoginPath = new PathString("/Login");
-                   o.LogoutPath = new PathString("/Account");
+                   o.LogoutPath = new PathString("/Login");
                    o.AccessDeniedPath = new PathString("/AccessDenied");
                });
 
+builder.Services.AddAuthorization
+    (options =>
+    {
+        options.AddPolicy("AdminArea", builder => builder.RequireRole("1"));
+
+        //options.AddPolicy("Login", builder => builder.RequireRole());
+
+
+    });
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.
+    AuthorizeAreaFolder("Administration", "/", "AdminArea");
+
+//    options.Conventions.
+//AuthorizeAreaFolder("Administration", "/Login", "Login");
+
+});
 
 var app = builder.Build();
 

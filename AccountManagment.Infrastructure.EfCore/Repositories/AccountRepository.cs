@@ -10,9 +10,36 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
     {
         private readonly AccountManagmentContext _acMaContext;
 
-        public AccountRepository(AccountManagmentContext acMaContext):base(acMaContext) 
+        public AccountRepository(AccountManagmentContext acMaContext) : base(acMaContext)
         {
             _acMaContext = acMaContext;
+        }
+
+
+        public Account GetBy(string username)
+        {
+            return _acMaContext.Accounts.FirstOrDefault(x => x.UserName == username);
+        }
+
+        public EditAccount GetDetails(long id)
+        {
+            //this method will get data and map them on edit model to fill
+            //bind properties on view for editing
+
+            return _acMaContext.Accounts.Select(x => new EditAccount
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                UserName = x.UserName,
+                FName = x.FName,
+                NationalCode = x.NationalCode,
+                Address = x.Address,
+                Description = x.Description,
+                RoleId = x.RoleId,
+
+            }).FirstOrDefault(x => x.Id == id);
+
+
         }
 
         public List<AccountViewModel> GetAccounts()
@@ -22,27 +49,6 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
                 Id = x.Id,
                 FullName = x.FullName
             }).ToList();
-        }
-
-        public Account GetBy(string username)
-        {
-            return _acMaContext.Accounts.FirstOrDefault(x => x.UserName == username);
-        }
-
-        public EditAccount GetDetails(long id)
-        {
-            return _acMaContext.Accounts.Select(x => new EditAccount
-            {
-                Id = x.Id,
-                FullName = x.FullName,
-                UserName = x.UserName,
-                FName=x.FName,
-                NationalCode=x.NationalCode,
-                Address=x.Address,
-                Description=x.Description,
-                RoleId = x.RoleId,
-        
-            }).FirstOrDefault(x => x.Id == id);
         }
 
         public List<AccountViewModel> Search(AccountSearchModel searchModel)

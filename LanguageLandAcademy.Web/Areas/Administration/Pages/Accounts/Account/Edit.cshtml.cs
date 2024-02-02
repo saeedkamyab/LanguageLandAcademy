@@ -11,6 +11,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
     {
         private readonly IRoleApplication _roleApplication;
         private readonly IAccountApplication _accountApplication;
+
         public SelectList Roles;
 
         public EditModel(IRoleApplication roleApplication, IAccountApplication accountApplication)

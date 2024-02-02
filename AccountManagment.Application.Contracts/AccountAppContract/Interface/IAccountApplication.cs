@@ -5,13 +5,21 @@ namespace AccountManagment.Application.Contracts.AccountAppContract.Interface
 {
     public interface IAccountApplication
     {
-        AccountViewModel GetAccountBy(long id);
-        OperationResult Register(RegisterAccount command);
-        OperationResult Edit(EditAccount command);
-        OperationResult Login(Login command);
-        EditAccount GetDetails(long id);
-        List<AccountViewModel> Search(AccountSearchModel searchModel);
         void Logout();
+
+        EditAccount GetDetails(long id);
+
+        OperationResult Login(Login command);
+
         List<AccountViewModel> GetAccounts();
+
+        AccountViewModel GetAccountBy(long id);
+
+        OperationResult Edit(EditAccount command);
+
+        OperationResult Register(RegisterAccount command);
+
+        List<AccountViewModel> Search(AccountSearchModel searchModel);
+    
     }
 }

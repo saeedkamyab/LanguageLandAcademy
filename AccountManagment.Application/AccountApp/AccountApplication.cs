@@ -15,8 +15,13 @@ namespace AccountManagment.Application.AccountApp
         private readonly IRoleRepository _roleRep;
         private readonly IAuthHelper _authHelper;
 
-        public AccountApplication(IAccountRepository accountRep, IPasswordHasher passHasher, IFileUploader fileUploader,
-          IRoleRepository roleRep, IAuthHelper authHelper)
+
+        public AccountApplication()
+        {
+        }
+
+        public AccountApplication(IAccountRepository accountRep, IPasswordHasher passHasher, 
+          IFileUploader fileUploader,IRoleRepository roleRep, IAuthHelper authHelper)
         {
             _passHasher = passHasher;
             _fileUploader = fileUploader;
@@ -25,28 +30,29 @@ namespace AccountManagment.Application.AccountApp
             _authHelper = authHelper;
         }
 
-        public AccountApplication()
-        {
-        }
-
         public OperationResult Register(RegisterAccount command)
         {
             OperationResult result = new OperationResult();
+
             var pass = command.Password;
+
             pass = _passHasher.Hash(pass);
+
             var account = new Account(command.FullName, command.FName,
                 command.NationalCode, command.Gender, null, command.RoleId,
                 command.UserName, pass, command.Description);
 
             _accountRep.Create(account);
+
             _accountRep.SaveChanges();
+
             return result.Succeeded();
         }
-
 
         public OperationResult Edit(EditAccount command)
         {
             var operation = new OperationResult();
+
             string password = null;
 
             var account = _accountRep.Get(command.Id);
@@ -71,15 +77,19 @@ namespace AccountManagment.Application.AccountApp
             var picturePath = _fileUploader.Upload(command.ProfilePhoto, path);
 
 
-            account.Edit(command.FullName, command.UserName, password, command.FName
-                , command.NationalCode, command.Gender, command.Address, command.RoleId, picturePath, command.Description);
+            account.Edit(command.FullName, command.UserName, password, 
+                         command.FName, command.NationalCode, command.Gender, 
+                         command.Address, command.RoleId,picturePath, command.Description);
+           
             _accountRep.SaveChanges();
+
             return operation.Succeeded();
         }
 
         public AccountViewModel GetAccountBy(long id)
         {
             var account = _accountRep.Get(id);
+
             return new AccountViewModel()
             {
                 FullName = account.FullName
@@ -99,7 +109,9 @@ namespace AccountManagment.Application.AccountApp
         public OperationResult Login(Login command)
         {
             var operation = new OperationResult();
+
             var account = _accountRep.GetBy(command.Username);
+
             if (account == null)
                 return operation.Failed(ApplicationMessages.WrongUserPass);
 
@@ -117,6 +129,7 @@ namespace AccountManagment.Application.AccountApp
                 , account.UserName, permissions);
 
             _authHelper.Signin(authViewModel);
+
             return operation.Succeeded();
         }
 

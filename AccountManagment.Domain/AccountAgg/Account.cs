@@ -11,13 +11,14 @@ namespace AccountManagment.Domain.AccountAgg
         public string FullName { get; private set; }
         public string FName { get; private set; }
         public string NationalCode { get; private set; }
-        public bool Gender { get; private set; }
+        public bool   Gender { get; private set; }
         public string Address { get; private set; }
         public string ProfilePhoto { get; private set; }
         public string Description { get; set; }
 
-        public int RoleId { get; private set; }
-        public Role Role { get; private set; }
+        //Relation
+        public int    RoleId { get; private set; }
+        public Role   Role { get; private set; }
         #endregion
 
         #region Constructor
@@ -62,8 +63,6 @@ namespace AccountManagment.Domain.AccountAgg
                 Password = pass;
         }
         #endregion
-
-       
 
     }
 }
