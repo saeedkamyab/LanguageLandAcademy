@@ -38,9 +38,10 @@ namespace AccountManagment.Application.AccountApp
 
             pass = _passHasher.Hash(pass);
 
+            
             var account = new Account(command.FullName, command.FName,
                 command.NationalCode, command.Gender, null, command.RoleId,
-                command.UserName, pass, command.Description);
+                command.UserName, pass, null,command.Description);
 
             _accountRep.Create(account);
 
@@ -126,7 +127,7 @@ namespace AccountManagment.Application.AccountApp
                 .ToList();
 
             var authViewModel = new AuthViewModel(account.Id, account.RoleId, account.FullName
-                , account.UserName, permissions);
+                , account.UserName,account.ProfilePhoto, permissions);
 
             _authHelper.Signin(authViewModel);
 

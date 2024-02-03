@@ -14,7 +14,7 @@
         <div class="sideBar">
             <!--profile image and name-->
             <div class="profile">
-              @*   <partial name="_CurrentUserPartial" /> *@
+               <partial name="_CurrentUserPartial" />
             </div>
             <!--Menu Items-->
             <ul>
@@ -22,6 +22,12 @@
                     <a asp-area="Administration" asp-page="/Accounts/Account/Index" class="menu-item">
                         <span class="menuBarIcon"><i class="icon-adult"></i></span>
                         <span class="items">افراد</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="Administration" asp-page="/Accounts/Role/Index" class="menu-item">
+                        <span class="menuBarIcon"><i class="icon-adult"></i></span>
+                        <span class="items">نقش ها</span>
                     </a>
                 </li>
                 <li>

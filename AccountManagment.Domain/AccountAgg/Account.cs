@@ -11,14 +11,14 @@ namespace AccountManagment.Domain.AccountAgg
         public string FullName { get; private set; }
         public string FName { get; private set; }
         public string NationalCode { get; private set; }
-        public bool   Gender { get; private set; }
+        public bool Gender { get; private set; }
         public string Address { get; private set; }
         public string ProfilePhoto { get; private set; }
         public string Description { get; set; }
 
         //Relation
-        public int    RoleId { get; private set; }
-        public Role   Role { get; private set; }
+        public int RoleId { get; private set; }
+        public Role Role { get; private set; }
         #endregion
 
         #region Constructor
@@ -26,7 +26,7 @@ namespace AccountManagment.Domain.AccountAgg
         public Account(string fullName, string fName,
           string nationalCode,
           bool gender, string address,
-          int roleId, string userName, string password, string description)
+          int roleId, string userName, string password, string profilePhoto, string description)
         {
             UserName = userName;
             Password = password;
@@ -35,6 +35,14 @@ namespace AccountManagment.Domain.AccountAgg
             NationalCode = nationalCode;
             Gender = gender;
             Address = address;
+            if (profilePhoto != null)
+            {
+                ProfilePhoto = profilePhoto;
+            }
+            else
+            {
+                ProfilePhoto = "unImage.png";
+            }
             Description = description;
 
             RoleId = roleId;

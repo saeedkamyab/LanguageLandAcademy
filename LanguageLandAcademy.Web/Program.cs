@@ -4,6 +4,7 @@ using ManagmentSystem.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using ZeroFramework.Application;
 using ZeroFramework.Application.Common;
+using ZeroFramework.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,10 +40,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization
     (options =>
     {
-        options.AddPolicy("AdminArea", builder => builder.RequireRole("1"));
+        options.AddPolicy("AdminArea", builder => builder.RequireRole(Roles.Administrator));
 
         //options.AddPolicy("Login", builder => builder.RequireRole());
-
 
     });
 
@@ -51,8 +51,8 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.
     AuthorizeAreaFolder("Administration", "/", "AdminArea");
 
-//    options.Conventions.
-//AuthorizeAreaFolder("Administration", "/Login", "Login");
+    //    options.Conventions.
+    //AuthorizeAreaFolder("Administration", "/Login", "Login");
 
 });
 
