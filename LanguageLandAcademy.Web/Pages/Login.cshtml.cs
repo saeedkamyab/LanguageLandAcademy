@@ -35,6 +35,10 @@ namespace LanguageLandAcademy.Web.Pages
 
             return RedirectToPage("/Login", result);
         }
-
+        public IActionResult OnGetLogout()
+        {
+            _accApp.Logout();
+            return RedirectToPage("/Index");
+        }
     }
 }

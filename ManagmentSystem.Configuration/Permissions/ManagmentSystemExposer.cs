@@ -16,20 +16,20 @@ namespace ManagmentSystem.Configuration.Permissions
                 {
                       "Tuitions",new List<PermissionDto>
                       {
-                         new PermissionDto(1,"TuitionsList"),
-                         new PermissionDto(2,"SearchTuitionsList"),
-                         new PermissionDto(3,"CreateTuition"),
-                         new PermissionDto(4,"EditTuition"),
-                         new PermissionDto(5,"DeleteTuition"),
+                         new PermissionDto(ManagmentSystemPermissons.TuitionsList,"TuitionsList"),
+                         new PermissionDto(ManagmentSystemPermissons.SearchTuitionsList,"SearchTuitionsList"),
+                         new PermissionDto(ManagmentSystemPermissons.CreateTuition,"CreateTuition"),
+                         new PermissionDto(ManagmentSystemPermissons.EditTuition,"EditTuition"),
+                         new PermissionDto(ManagmentSystemPermissons.DeleteTuition,"DeleteTuition"),
                       }
                 },
                 {
                       "Level" , new List<PermissionDto>
-                      { 
-                         new PermissionDto(6,"LevelList"),
-                         new PermissionDto(7,"CreateLevel"),
-                         new PermissionDto(8,"EditLevel"),
-                         new PermissionDto(9,"DeleteLevel"),
+                      {
+                         new PermissionDto(ManagmentSystemPermissons.LevelList,"LevelList"),
+                         new PermissionDto(ManagmentSystemPermissons.CreateLevel,"CreateLevel"),
+                         new PermissionDto(ManagmentSystemPermissons.EditLevel,"EditLevel"),
+                         new PermissionDto(ManagmentSystemPermissons.DeleteLevel,"DeleteLevel"),
                       }
                 }
 

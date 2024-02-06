@@ -1,7 +1,9 @@
 using ManagmentSystem.Application.Contract.Tuition.Interface;
 using ManagmentSystem.Application.Contract.Tuition.ViewModels;
+using ManagmentSystem.Configuration.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ZeroFramework.Infrastructure;
 
 namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
 {
@@ -14,7 +16,8 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
             _tuApp = tuApp;
         }
         public List<AllTuitions> tuitions;
-       
+
+        [NeedsPermission(ManagmentSystemPermissons.TuitionsList)]
         public void OnGet()
         {
             tuitions = _tuApp.GetAllTuitions();
