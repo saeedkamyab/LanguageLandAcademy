@@ -1,17 +1,26 @@
-﻿using ManagmentSystem.Domain.TuitionAgg;
+﻿using ManagmentSystem.Domain.LevelAgg;
+using ManagmentSystem.Domain.RoomAgg;
+using ManagmentSystem.Domain.TemporaryRegisterAgg;
+using ManagmentSystem.Domain.TermClassAgg;
+using ManagmentSystem.Domain.TuitionAgg;
 using ManagmentSystem.Infrastructure.EfCore.Mapping;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ManagmentSystem.Infrastructure.EfCore
 {
     public class ManagmentSystemContext:DbContext
     {
+        public DbSet<Level> Levels { get; set; }
+
+        public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<TemporaryRegister> TemporaryRegisters { get; set; }
+
+        public DbSet<TermClass> TermClasses { get; set; }
+
         public DbSet<Tuition> Tuitions { get; set; }
+
+      
 
         public ManagmentSystemContext(DbContextOptions<ManagmentSystemContext>options):base(options) 
         {

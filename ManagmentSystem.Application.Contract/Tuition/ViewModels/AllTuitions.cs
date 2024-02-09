@@ -20,5 +20,7 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
         public string LastUpdate { get; set; }
 
         public bool IsRemoved { get; set; }
+
+        public long OwnerId { get; set; }
     }
 }

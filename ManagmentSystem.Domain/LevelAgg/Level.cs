@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagmentSystem.Domain.TermClassAgg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ using ZeroFramework.Domain;
 
 namespace ManagmentSystem.Domain.LevelAgg
 {
-    public class Level:EntityBase<int>
+    public class Level : EntityBase<int>
     {
-  
+
 
         public string LevelName { get; private set; }
 
@@ -17,12 +18,24 @@ namespace ManagmentSystem.Domain.LevelAgg
 
         public string LevelDescription { get; private set; }
 
+        //-----------------------------------------------------------------------
+
+        public List<TermClass> TermClasses { get; private set; }
+
+
+        //========================================================================
+        public Level()
+        {
+            TermClasses = new List<TermClass>();
+        }
+
         public Level(string levelName, int levelType, string levelDescription)
         {
             LevelName = levelName;
             LevelType = levelType;
             LevelDescription = levelDescription;
         }
+
 
         public void Edit(string levelName, int levelType, string levelDescription)
         {
@@ -32,7 +45,6 @@ namespace ManagmentSystem.Domain.LevelAgg
             LastUpdate = DateTime.Now;
         }
 
-        #region Remove & Restore
         public void Remove()
         {
             IsRemoved = true;
@@ -42,6 +54,6 @@ namespace ManagmentSystem.Domain.LevelAgg
         {
             IsRemoved = false;
         }
-        #endregion
+
     }
 }

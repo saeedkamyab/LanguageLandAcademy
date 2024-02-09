@@ -21,16 +21,39 @@
                 <label class="control-label col-md-3">انتخاب دسترسی ها</label>
                 <div class="col-md-12">
 
-                    <select multiple asp-for="Command.Permissions" asp-items="Model.Permissions" 
-                    style="width:350px; height:420px;">
-               
+                    <select multiple asp-for="Command.Permissions" asp-items="Model.Permissions"
+                            style="width:350px; height:420px;">
                     </select>
-                   
-                 @*    
-                    <button onclick="var el = document.getElementsByTagName('select')[0];alert(getSelectValues(el));">
-                        Show selected values
-                    </button>
+@* 
+                    @foreach (var chItem in Model.Permissions)
+                    {
+                        if (chItem.Selected == true)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="Command.Permissions" type="checkbox" value="@Model.Command.Permissions" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    @chItem.Text
+                                </label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="Command.Permissions" type="checkbox" value="@Model.Command.Permissions" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    @chItem.Text
+                                </label>
+                            </div>
+                        }
+
+                    }
  *@
+
+                    @*
+                    <button onclick="var el = document.getElementsByTagName('select')[0];alert(getSelectValues(el));">
+                    Show selected values
+                    </button>
+                    *@
 
 
                 </div>

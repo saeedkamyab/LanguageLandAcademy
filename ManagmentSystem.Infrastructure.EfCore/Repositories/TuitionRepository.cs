@@ -1,11 +1,6 @@
 ﻿using ManagmentSystem.Application.Contract.Tuition.ViewModels;
 using ManagmentSystem.Domain.TuitionAgg;
 using ManagmentSystem.Domain.TuitionAgg.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Infrastructure;
 
 namespace ManagmentSystem.Infrastructure.EfCore.Repositories
@@ -24,6 +19,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
             return _context.Tuitions.Select(tu => new AllTuitions
             {
                 Id = tu.Id,
+                OwnerId = tu.OwnerId,
                 CreateDate = tu.CreateDate.ToString(),
                 TuitionAmount = tu.TuitionAmount,
                 TuitionDescription = tu.TuitionDescription,

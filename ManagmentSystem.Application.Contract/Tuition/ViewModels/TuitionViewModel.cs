@@ -31,6 +31,8 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public string TuitionDescription { get;  set; }
 
+        public long OwnerId { get; set; }
+
         #endregion
     }
 }

@@ -47,7 +47,9 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
             return _acMaContext.Accounts.Select(x => new AccountViewModel
             {
                 Id = x.Id,
-                FullName = x.FullName
+                FullName = x.FullName,
+                FName= x.FName,
+                NationalCode= x.NationalCode,
             }).ToList();
         }
 

@@ -11,4 +11,10 @@
     <ProjectReference Include="..\ZeroFramework\ZeroFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RoomAgg\Interface\" />
+    <Folder Include="TemporaryRegisterAgg\Interface\" />
+    <Folder Include="TermClassAgg\Interface\" />
+  </ItemGroup>
+
 </Project>

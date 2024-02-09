@@ -16,11 +16,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.ToTable("Tuitions");
             builder.HasKey(t=>t.Id);
 
-            builder.Property(t=>t.CreateDate);
-            builder.Property(t=>t.TuitionAmount);
-            builder.Property(t=>t.TuitionStatus);
+            builder.Property(t=>t.CreateDate).IsRequired();
+            builder.Property(t=>t.TuitionAmount).IsRequired();
+            builder.Property(t=>t.TuitionStatus).IsRequired();
             builder.Property(t=>t.TuitionPayDate);
-            builder.Property(t=>t.TuitionDescription);
+            builder.Property(t=>t.TuitionDescription).IsRequired(false).HasMaxLength(300);
             builder.Property(t=>t.IsRemoved);
             builder.Property(t=>t.LastUpdate);
 
