@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ManagmentSystem.Application.Contract.Level.ViewModels;
 using ZeroFramework.Application.Common;
-
 namespace ManagmentSystem.Application.Contract.Level.Interface
 {
-    public interface ILevelApplication
+    public interface ITemporaryRegisterApplication
     {
 
         List<GetAllLevelItems> GetAllLevels();

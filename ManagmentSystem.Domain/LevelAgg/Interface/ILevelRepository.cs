@@ -1,4 +1,4 @@
-﻿using ManagmentSystem.Application.Contract.Level;
+﻿using ManagmentSystem.Application.Contract.Level.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

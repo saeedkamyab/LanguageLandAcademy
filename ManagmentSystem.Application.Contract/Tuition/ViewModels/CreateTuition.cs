@@ -4,7 +4,7 @@ using ZeroFramework.Application.Common;
 
 namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
-    public class CreateTuition
+    public class CreateRoom
     {
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]

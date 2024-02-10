@@ -24,7 +24,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
         {
             _tuApp = tuApp;
         }
-        public List<AllTuitions> tuitions;
+        public List<AllRooms> tuitions;
 
         [NeedsPermission(ManagmentSystemPermissons.TuitionsList)]
         public void OnGet()

@@ -12,11 +12,11 @@ namespace ManagmentSystem.Application.Contract.Tuition.Interface
     {
 
 
-        List<AllTuitions> GetAllTuitions();
+        List<AllRooms> GetAllTuitions();
       
-        OperationResult CreateTuition(CreateTuition createTuition);
+        OperationResult CreateTuition(CreateRoom createTuition);
         
-        OperationResult EditTuition(EditTuition editTuition);
+        OperationResult EditTuition(EditRoom editTuition);
 
         OperationResult PayTuition(long Id);
 

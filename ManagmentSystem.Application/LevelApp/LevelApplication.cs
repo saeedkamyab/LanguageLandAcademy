@@ -1,5 +1,5 @@
-﻿using ManagmentSystem.Application.Contract.Level;
-using ManagmentSystem.Application.Contract.Level.Interface;
+﻿using ManagmentSystem.Application.Contract.Level.Interface;
+using ManagmentSystem.Application.Contract.Level.ViewModels;
 using ManagmentSystem.Domain.LevelAgg;
 using ManagmentSystem.Domain.LevelAgg.Interface;
 using System;
@@ -11,7 +11,7 @@ using ZeroFramework.Application.Common;
 
 namespace ManagmentSystem.Application.LevelApp
 {
-    public class LevelApplication : ILevelApplication
+    public class LevelApplication : ITemporaryRegisterApplication
     {
         private readonly ILevelRepository _levelRepository;
 

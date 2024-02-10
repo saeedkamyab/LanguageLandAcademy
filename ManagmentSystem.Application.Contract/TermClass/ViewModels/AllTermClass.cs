@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
+namespace ManagmentSystem.Application.Contract.TermClass.ViewModels
 {
-    public class AllRooms
+    public class AllTermClass
     {
         public long Id { get; set; }
 

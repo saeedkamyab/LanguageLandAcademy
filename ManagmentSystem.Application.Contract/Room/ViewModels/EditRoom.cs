@@ -1,4 +1,4 @@
-﻿namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
+﻿namespace ManagmentSystem.Application.Contract.Room.ViewModels
 {
     public class EditRoom : CreateRoom
     {

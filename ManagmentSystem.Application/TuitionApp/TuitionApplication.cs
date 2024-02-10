@@ -20,7 +20,7 @@ namespace ManagmentSystem.Application.TuitionApp
             _tuRep = tuitionRepository;
         }
 
-        public OperationResult CreateTuition(CreateTuition createTuition)
+        public OperationResult CreateTuition(CreateRoom createTuition)
         {
             var operation = new OperationResult();
             var tuition = new Tuition(createTuition.TuitionAmount,
@@ -30,7 +30,7 @@ namespace ManagmentSystem.Application.TuitionApp
             return operation.Succeeded();
         }
 
-        public OperationResult EditTuition(EditTuition editTuition)
+        public OperationResult EditTuition(EditRoom editTuition)
         {
             var operation = new OperationResult();
             var tuition = _tuRep.Get(editTuition.Id);
@@ -41,7 +41,7 @@ namespace ManagmentSystem.Application.TuitionApp
             return operation.Succeeded();
         }
 
-        public List<AllTuitions> GetAllTuitions()
+        public List<AllRooms> GetAllTuitions()
         {
             return _tuRep.GetAllTuitions();
         }

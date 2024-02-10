@@ -23,7 +23,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
             _tuitionApp = tuApp;
         }
         [BindProperty]
-        public CreateTuition tuition {  get; set; }
+        public CreateRoom tuition {  get; set; }
         public List<AccountViewModel> students {  get; set; }
 
         [NeedsPermission(ManagmentSystemPermissons.CreateTuition)]

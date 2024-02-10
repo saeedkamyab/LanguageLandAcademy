@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
-    public class RoomViewModel
+    public class TermClassViewModel
     {
         #region Properties
 
@@ -20,18 +20,19 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public bool IsRemoved { get; set; }
 
-        public double TuitionAmount { get;  set; }
+        public string StartTime { get; set; }
 
+        public string EndTime { get; set; }
 
-        public bool TuitionStatus { get;  set; }
+        public string Day { get; set; }
 
+        public string Description { get; set; }
 
-        public string TuitionPayDate { get;  set; }
+        public List<long> PeopleLists { get; set; }
 
+        public int LevelId { get; private set; }
 
-        public string TuitionDescription { get;  set; }
-
-        public long OwnerId { get; set; }
+        public int RoomId { get; private set; }
 
         #endregion
     }

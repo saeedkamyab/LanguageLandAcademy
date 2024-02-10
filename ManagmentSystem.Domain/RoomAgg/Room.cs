@@ -1,6 +1,5 @@
 ﻿using ManagmentSystem.Domain.TermClassAgg;
 using ZeroFramework.Domain;
-using ZeroFramework.Infrastructure;
 
 namespace ManagmentSystem.Domain.RoomAgg
 {
