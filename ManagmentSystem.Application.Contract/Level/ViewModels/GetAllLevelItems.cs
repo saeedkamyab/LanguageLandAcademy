@@ -2,7 +2,7 @@
 {
     public class GetAllLevelItems
     {
-        public int LevelId { get; set; }
+        public int Id { get; set; }
 
         public string CreationDate { get; set; }
 

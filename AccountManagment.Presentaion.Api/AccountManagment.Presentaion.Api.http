@@ -1,0 +1,6 @@
+@AccountManagment.Presentaion.Api_HostAddress = http://localhost:5186
+
+GET {{AccountManagment.Presentaion.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

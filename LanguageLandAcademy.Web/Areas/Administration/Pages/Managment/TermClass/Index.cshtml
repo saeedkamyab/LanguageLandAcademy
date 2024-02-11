@@ -1,0 +1,64 @@
+﻿@page
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.TermClass.IndexModel
+@{
+}
+<h1>You Are in Admin Area Tuition</h1>
+
+
+<div class="panel-heading">
+    <h3 class="panel-title">Bordered Table</h3>
+    <a asp-page="/Managment/TermClass/Create" asp-area="Administration">ایجاد فیش</a>
+</div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>شناسه رسید مالی</th>
+                        <th>به نام</th>
+                        <th>مبلغ</th>
+                        <th>تاریخ</th>
+                        <th>وضعیت</th>
+                        <th>تاریخ پرداخت</th>
+                        <th>توضیحات</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.tuitions)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.OwnerId</td>
+                            <td>@item.TuitionAmount</td>
+                            <td>@item.CreateDate</td>
+                            <td>@item.TuitionStatus</td>
+                            <td>@item.TuitionPayDate</td>
+                            <td>@item.TuitionDescription</td>
+                            <td>
+
+                                @if (item.IsRemoved)
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-warning m-b-5 "> بازیابی </a>
+                                }
+                                else
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-danger m-b-5 "> حذف</a>
+                                }
+                                @if (item.TuitionStatus == false)
+                                {
+                                    <a asp-page="./Index" asp-page-handler="Pay" asp-route-id="@item.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-success m-b-5 ">پرداخت</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

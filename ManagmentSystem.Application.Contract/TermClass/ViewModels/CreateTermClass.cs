@@ -1,5 +1,5 @@
 ﻿
-namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
+namespace ManagmentSystem.Application.Contract.TermClass.ViewModels
 {
     public class CreateTermClass
     {
@@ -13,8 +13,8 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public List<long> PeopleLists { get; set; }
 
-        public int LevelId { get; private set; }
+        public int LevelId { get;  set; }
 
-        public int RoomId { get; private set; }
+        public int RoomId { get; set; }
     }
 }

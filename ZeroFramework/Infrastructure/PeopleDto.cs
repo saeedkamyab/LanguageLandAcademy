@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ZeroFramework.Infrastructure
 {
-    public class PeaopleDto
+    public class PeopleDto
     {
 
         public long AccountId { get; set; }
 
-        public PeaopleDto(long accountId)
+        public PeopleDto(long accountId)
         {
             AccountId = accountId;
         }

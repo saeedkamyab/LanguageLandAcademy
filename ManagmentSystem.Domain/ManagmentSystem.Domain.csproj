@@ -7,14 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccountManagment.Application.Contracts\AccountManagment.Application.Contracts.csproj" />
     <ProjectReference Include="..\ManagmentSystem.Application.Contract\ManagmentSystem.Application.Contract.csproj" />
     <ProjectReference Include="..\ZeroFramework\ZeroFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="RoomAgg\Interface\" />
     <Folder Include="TemporaryRegisterAgg\Interface\" />
-    <Folder Include="TermClassAgg\Interface\" />
   </ItemGroup>
 
 </Project>

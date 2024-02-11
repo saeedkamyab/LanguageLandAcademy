@@ -31,6 +31,16 @@ namespace ManagmentSystem.Configuration.Permissions
                          new PermissionDto(ManagmentSystemPermissons.EditLevel,"EditLevel"),
                          new PermissionDto(ManagmentSystemPermissons.DeleteLevel,"DeleteLevel"),
                       }
+                }, 
+                {
+                      "TermClass" , new List<PermissionDto>
+                      {
+                         new PermissionDto(ManagmentSystemPermissons.TermClassList,"TermClassList"),
+                         new PermissionDto(ManagmentSystemPermissons.CreateTermClass,"CreateTermClass"),
+                         new PermissionDto(ManagmentSystemPermissons.EditTermClass,"EditTermClass"),
+                         new PermissionDto(ManagmentSystemPermissons.DeleteTermClass,"DeleteTermClass"),
+                         new PermissionDto(ManagmentSystemPermissons.SearchTermClassList,"SearchTermClass"),
+                      }
                 }
 
             };

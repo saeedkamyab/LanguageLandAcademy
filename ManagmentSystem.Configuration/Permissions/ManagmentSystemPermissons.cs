@@ -24,7 +24,17 @@ namespace ManagmentSystem.Configuration.Permissions
         public const int CreateLevel = 7;
         public const int EditLevel = 8;
         public const int DeleteLevel = 9;
-       
+
+
+        #endregion
+
+        #region TermClass Permissions
+
+        public const int TermClassList = 10;
+        public const int SearchTermClassList = 11;
+        public const int CreateTermClass = 12;
+        public const int EditTermClass = 13;
+        public const int DeleteTermClass = 14;
 
         #endregion
     }

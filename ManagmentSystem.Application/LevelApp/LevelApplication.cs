@@ -11,7 +11,7 @@ using ZeroFramework.Application.Common;
 
 namespace ManagmentSystem.Application.LevelApp
 {
-    public class LevelApplication : ITemporaryRegisterApplication
+    public class LevelApplication : ILevelApplication
     {
         private readonly ILevelRepository _levelRepository;
 
@@ -37,7 +37,7 @@ namespace ManagmentSystem.Application.LevelApp
 
         public List<GetAllLevelItems> GetAllLevels()
         {
-            throw new NotImplementedException();
+          return _levelRepository.getAllLevels();
         }
 
         public OperationResult RestoreLevel(RestoreLevelItem entity)

@@ -27,21 +27,27 @@ namespace ManagmentSystem.Domain.TermClassAgg
 
         }
 
-        public TermClass(string startTime, string endTime, string day, string description, List<PeopleList> peopleLists)
+        public TermClass(string startTime, string endTime, string day, 
+            string description,int levelId,int roomId, List<PeopleList> peopleLists)
         {
             StartTime = startTime;
             EndTime = endTime;
             Day = day;
             Description = description;
+            LevelId = levelId;
+            RoomId = roomId;
             PeopleLists = peopleLists;
         }
 
-        public void Edit(string startTime, string endTime, string day, string description, List<PeopleList> peopleLists)
+        public void Edit(string startTime, string endTime, string day, 
+            string description, int levelId, int roomId, List<PeopleList> peopleLists)
         {
             StartTime = startTime;
             EndTime = endTime;
             Day = day;
             Description = description;
+            LevelId = levelId;
+            RoomId = roomId;
             PeopleLists = peopleLists;
         }
 

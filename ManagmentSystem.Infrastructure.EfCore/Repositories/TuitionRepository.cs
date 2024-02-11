@@ -14,9 +14,9 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
             _context = context;
         }
 
-        public List<AllRooms> GetAllTuitions()
+        public List<AllTuitions> GetAllTuitions()
         {
-            return _context.Tuitions.Select(tu => new AllRooms
+            return _context.Tuitions.Select(tu => new AllTuitions
             {
                 Id = tu.Id,
                 OwnerId = tu.OwnerId,

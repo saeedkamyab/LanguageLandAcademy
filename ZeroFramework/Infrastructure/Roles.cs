@@ -2,8 +2,8 @@
 {
     public static class Roles
     {
-        public const string Administrator = "1";
-        public const string Clerck = "2";
+        public const string Administrator = "2";
+        public const string Clerck = "20";
         public const string Teacher = "3";
         public const string Student = "4";
         

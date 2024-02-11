@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
-    public class AllRooms
+    public class AllTuitions
     {
         public long Id { get; set; }
 

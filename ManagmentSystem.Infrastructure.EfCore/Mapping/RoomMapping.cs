@@ -13,7 +13,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
     {
         public void Configure(EntityTypeBuilder<Room> builder)
         {
-            builder.ToTable("Room");
+            builder.ToTable("Rooms");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.RoomName).IsRequired().HasMaxLength(150); ;

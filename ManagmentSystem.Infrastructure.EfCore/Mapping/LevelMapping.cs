@@ -13,7 +13,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
     {
         public void Configure(EntityTypeBuilder<Level> builder)
         {
-            builder.ToTable("Level");
+            builder.ToTable("Levels");
 
             builder.HasKey(x => x.Id);
 

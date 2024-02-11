@@ -2,6 +2,6 @@
 {
     public class EditLevelItem : AddLevelItem
     {
-        public int LevelId { get; set; }
+        public int Id { get; set; }
     }
 }

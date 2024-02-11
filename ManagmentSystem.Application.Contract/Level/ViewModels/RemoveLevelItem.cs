@@ -2,7 +2,7 @@
 {
     public class RemoveLevelItem
     {
-        public int LevelId { get; set; }
+        public int Id { get; set; }
 
         public string LevelName { get;  set; }
 

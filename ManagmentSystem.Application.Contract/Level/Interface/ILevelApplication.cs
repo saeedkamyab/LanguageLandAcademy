@@ -2,7 +2,7 @@
 using ZeroFramework.Application.Common;
 namespace ManagmentSystem.Application.Contract.Level.Interface
 {
-    public interface ITemporaryRegisterApplication
+    public interface ILevelApplication
     {
 
         List<GetAllLevelItems> GetAllLevels();

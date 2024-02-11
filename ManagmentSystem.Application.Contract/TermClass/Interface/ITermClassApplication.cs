@@ -6,6 +6,8 @@ namespace ManagmentSystem.Application.Contract.TermClass.Interface
     public interface ITermClassApplication
     {
         List<GetAllTermClassItems> GetAllTermClass();
+        
+        EditTermClass GetDetails(int id);
 
         OperationResult CreateTermClass(CreateTermClass entity);
 

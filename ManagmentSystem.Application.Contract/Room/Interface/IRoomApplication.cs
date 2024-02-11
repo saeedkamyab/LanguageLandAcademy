@@ -5,7 +5,7 @@ namespace ManagmentSystem.Application.Contract.Room.Interface
 {
     public interface IRoomApplication
     {
-        List<GetAllRoomItems> GetAllLevels();
+        List<AllRooms> GetAllRooms();
 
         OperationResult CreateRoom(CreateRoom entity);
 

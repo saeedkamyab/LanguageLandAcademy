@@ -1,4 +1,5 @@
 using AccountManagment.Configuration;
+using AccountManagment.PresentaionApi;
 using LanguageLandAcademy.Web;
 using ManagmentSystem.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -22,7 +23,8 @@ AccountManagementBootstrapper.Configure(builder.Services, con);
 builder.Services.AddTransient<IAuthHelper, AuthHelper>();
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 builder.Services.AddTransient<IFileUploader, FileUploader>();
-
+builder.Services.AddMvc();
+builder.Services.AddControllers();
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
@@ -51,10 +53,11 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.
     AuthorizeAreaFolder("Administration", "/", "AdminArea");
 
-    //    options.Conventions.
-    //AuthorizeAreaFolder("Administration", "/Login", "Login");
+    options.Conventions.
+AuthorizeAreaFolder("Administration", "/Login", "Login");
 
-}).AddMvcOptions(options=>options.Filters.Add<SecurityPageFilter>());
+}).AddMvcOptions(options => options.Filters.Add<SecurityPageFilter>())
+.AddApplicationPart(typeof(AccListController).Assembly);
 
 var app = builder.Build();
 
@@ -68,6 +71,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 app.UseAuthentication();
 
 app.UseHttpsRedirection();

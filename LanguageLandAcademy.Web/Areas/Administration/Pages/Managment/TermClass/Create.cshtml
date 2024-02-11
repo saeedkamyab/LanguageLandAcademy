@@ -1,0 +1,70 @@
+﻿@page
+@model ServiceHost.Areas.Administration.Pages.Accounts.Role.CreateModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">ایجاد نقش جدید</h4>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">ایجاد نقش جدید</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="CreateTermClass.StartTime" class="control-label">زمان شروع</label>
+                                        <input type="text" class="form-control" asp-for="CreateTermClass.StartTime">
+                                        <span asp-validation-for="CreateTermClass.StartTime" class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CreateTermClass.EndTime" class="control-label">زمان پایان</label>
+                                        <input type="text" class="form-control" asp-for="CreateTermClass.EndTime">
+                                        <span asp-validation-for="CreateTermClass.EndTime" class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CreateTermClass.Day" class="control-label">روزهای</label>
+                                        <input type="text" class="form-control" asp-for="CreateTermClass.Day">
+                                        <span asp-validation-for="CreateTermClass.Day" class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-select"
+                                                asp-for="CreateTermClass.RoomId">
+                                            @foreach (var item in Model.Rooms)
+                                            {
+                                                <option value="@item.Id">@item.RoomName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-select" 
+                                                asp-for="CreateTermClass.LevelId">
+                                            @foreach (var item in Model.Levels)
+                                            {
+                                                <option value="@item.Id">@item.LevelName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CreateTermClass.Description" class="control-label">توضیحات</label>
+                                        <input type="text" class="form-control" asp-for="CreateTermClass.Description">
+                                        <span asp-validation-for="CreateTermClass.Description" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info waves-effect waves-light">ایجاد</button>
+                            <a asp-page="./Index" class="btn btn-dark waves-effect waves-light m-b-5">بازگشت</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -41,7 +41,7 @@ namespace ManagmentSystem.Application.TuitionApp
             return operation.Succeeded();
         }
 
-        public List<AllRooms> GetAllTuitions()
+        public List<AllTuitions> GetAllTuitions()
         {
             return _tuRep.GetAllTuitions();
         }
