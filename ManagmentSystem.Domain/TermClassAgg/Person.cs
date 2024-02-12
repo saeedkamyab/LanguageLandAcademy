@@ -1,9 +1,9 @@
 ﻿
 namespace ManagmentSystem.Domain.TermClassAgg
 {
-    public class PeopleList
+    public class Person
     {
-        public long PersonId { get; private set; }
+        public long Id { get; private set; }
 
         public long AccountId { get; private set; }
 
@@ -13,7 +13,7 @@ namespace ManagmentSystem.Domain.TermClassAgg
         public TermClass TermClass { get; private set; }
 
         //=================================================
-        public PeopleList(long accountId)
+        public Person(long accountId)
         {
             AccountId = accountId;
         }

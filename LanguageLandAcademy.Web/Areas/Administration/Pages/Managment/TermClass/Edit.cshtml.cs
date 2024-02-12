@@ -13,17 +13,18 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.TermClass
 {
     public class EditModel : PageModel
     {
-        //public EditRole Command;
-        public List<SelectListItem> PeopleList = new List<SelectListItem>();
+ 
         private readonly ITermClassApplication _termClassApp;
         private readonly IAccountApplication _accountApp;
 
         private readonly IEnumerable<IPermissionExposer> _exposers;
 
-        public EditModel(ITermClassApplication termClassApp, IEnumerable<IPermissionExposer> exposers)
+        public EditModel(ITermClassApplication termClassApp,
+            IAccountApplication accountApp,
+            IEnumerable<IPermissionExposer> exposers)
         {
             _termClassApp = termClassApp;
-
+            _accountApp = accountApp;
             _exposers = exposers;
         }
 
@@ -35,7 +36,7 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.TermClass
         public void OnGet(int id)
         {
             TermClass = _termClassApp.GetDetails(id);
-       
+            acc = _accountApp.GetAccounts();
         }
 
         public IActionResult OnPost()

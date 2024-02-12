@@ -18,6 +18,8 @@ namespace ManagmentSystem.Infrastructure.EfCore
 
         public DbSet<TermClass> TermClasses { get; set; }
 
+        public DbSet<Person> People { get; set; }
+
         public DbSet<Tuition> Tuitions { get; set; }
 
       

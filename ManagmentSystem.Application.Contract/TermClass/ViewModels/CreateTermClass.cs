@@ -11,7 +11,7 @@ namespace ManagmentSystem.Application.Contract.TermClass.ViewModels
        
         public string Description { get; set; }
 
-        public List<long> PeopleLists { get; set; }
+        public List<long> People { get; set; }
 
         public int LevelId { get;  set; }
 

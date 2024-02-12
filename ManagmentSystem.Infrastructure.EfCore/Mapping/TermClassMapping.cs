@@ -34,12 +34,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
         .HasForeignKey(x => x.RoomId);
 
 
-            builder.OwnsMany(t => t.PeopleLists, navigationBuilder =>
-            {
-                navigationBuilder.HasKey(t => t.PersonId);
-                navigationBuilder.ToTable("StudentTermList");
-                navigationBuilder.WithOwner(t => t.TermClass);
-            });
+            builder.HasMany(t => t.People).WithOne(t=>t.TermClass).HasForeignKey(t=>t.Id);
         }
     }
 }

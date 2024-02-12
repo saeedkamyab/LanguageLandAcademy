@@ -28,11 +28,11 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public string Description { get; set; }
 
-        //public List<long> PeopleLists { get; set; }
+        public List<long> People { get; set; }
 
-        //public int LevelId { get; private set; }
+        public int LevelId { get;  set; }
 
-        //public int RoomId { get; private set; }
+        public int RoomId { get; set; }
 
         #endregion
     }

@@ -2,5 +2,6 @@
 {
     public class RestoreTermClassItem
     {
+        public long Id { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace ManagmentSystem.Domain.TermClassAgg
         public int RoomId { get; private set; }
         public Room Room { get; private set; }
 
-        public List<PeopleList> PeopleLists { get; private set; }
+        public List<Person> People { get; private set; }
 
         //===========================================================
         protected TermClass()
@@ -28,7 +28,7 @@ namespace ManagmentSystem.Domain.TermClassAgg
         }
 
         public TermClass(string startTime, string endTime, string day, 
-            string description,int levelId,int roomId, List<PeopleList> peopleLists)
+            string description,int levelId,int roomId, List<Person> people)
         {
             StartTime = startTime;
             EndTime = endTime;
@@ -36,11 +36,11 @@ namespace ManagmentSystem.Domain.TermClassAgg
             Description = description;
             LevelId = levelId;
             RoomId = roomId;
-            PeopleLists = peopleLists;
+            People = people;
         }
 
         public void Edit(string startTime, string endTime, string day, 
-            string description, int levelId, int roomId, List<PeopleList> peopleLists)
+            string description, int levelId, int roomId, List<Person> people)
         {
             StartTime = startTime;
             EndTime = endTime;
@@ -48,7 +48,7 @@ namespace ManagmentSystem.Domain.TermClassAgg
             Description = description;
             LevelId = levelId;
             RoomId = roomId;
-            PeopleLists = peopleLists;
+            People = people;
         }
 
         public void Remove()

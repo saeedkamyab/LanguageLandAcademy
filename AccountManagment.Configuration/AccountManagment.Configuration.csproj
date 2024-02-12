@@ -15,6 +15,7 @@
     <ProjectReference Include="..\AccountManagment.Application.Contracts\AccountManagment.Application.Contracts.csproj" />
     <ProjectReference Include="..\AccountManagment.Application\AccountManagment.Application.csproj" />
     <ProjectReference Include="..\AccountManagment.Infrastructure.EfCore\AccountManagment.Infrastructure.EfCore.csproj" />
+    <ProjectReference Include="..\LLaQuery\LLaQuery.csproj" />
   </ItemGroup>
 
 </Project>

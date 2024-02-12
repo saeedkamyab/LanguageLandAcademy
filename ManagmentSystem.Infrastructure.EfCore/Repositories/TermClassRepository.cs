@@ -27,6 +27,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 StartTime= tc.StartTime,
                 IsRemoved = tc.IsRemoved,
                 LastUpdate = tc.LastUpdate.ToString()
+                
             }).ToList();
         }
 
@@ -41,15 +42,16 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 Description = x.Description,
                 LevelId = x.LevelId,
                 RoomId = x.RoomId,
-                MappedPeople=MapPeople(x.PeopleLists)
+                People=MapPeople(x.People.ToList()),
             }).AsNoTracking().FirstOrDefault(x => x.Id == id);
-            termClass.PeopleLists = termClass.MappedPeople.Select(x => x.AccountId).ToList();
+          
+            termClass.People = termClass.People.ToList();
 
             return termClass;
         }
-        private static List<PeopleDto> MapPeople(IEnumerable<PeopleList> people)
+        private static List<long> MapPeople(List<Person> people)
         {
-            return people.Select(x => new PeopleDto(x.AccountId)).ToList();
+            return people.Select(x => new Person(x.AccountId).AccountId).ToList();
         }
     }
 }

@@ -6,6 +6,8 @@ using AccountManagment.Domain.AccountAgg.Interface;
 using AccountManagment.Domain.RoleAgg.Interface;
 using AccountManagment.Infrastructure.EfCore;
 using AccountManagment.Infrastructure.EfCore.Repositories;
+using LLaQuery.Contracts.Account;
+using LLaQuery.Queries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +24,7 @@ namespace AccountManagment.Configuration
             services.AddTransient<IRoleApplication, RoleApplication>();
             services.AddTransient<IRoleRepository, RoleRepository>();
 
-
+            services.AddTransient<IAccountListQuery, AccountQuery>();
 
             services.AddDbContext<AccountManagmentContext>(x => x.UseSqlServer(connectionString));
         }

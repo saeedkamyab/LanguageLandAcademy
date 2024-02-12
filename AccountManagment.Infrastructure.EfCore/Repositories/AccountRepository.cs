@@ -50,6 +50,8 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
                 FullName = x.FullName,
                 FName= x.FName,
                 NationalCode= x.NationalCode,
+                ProfilePhoto = x.ProfilePhoto,
+                Role=x.Role.Name
             }).ToList();
         }
 

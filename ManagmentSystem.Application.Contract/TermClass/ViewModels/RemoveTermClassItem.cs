@@ -2,6 +2,6 @@
 {
     public class RemoveTermClassItem
     {
-
+        public long Id { get; set; }
     }
 }

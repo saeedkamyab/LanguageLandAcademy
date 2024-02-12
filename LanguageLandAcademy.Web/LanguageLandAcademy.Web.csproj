@@ -22,4 +22,8 @@
     <ProjectReference Include="..\ManagmentSystem.Configuration\ManagmentSystem.Configuration.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ProfilePictures\" />
+  </ItemGroup>
+
 </Project>

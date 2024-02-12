@@ -19,7 +19,7 @@ namespace ManagmentSystem.Application.TermClassApp
         {
             var operation = new OperationResult();
             var termClass = new TermClass(entity.StartTime,entity.EndTime,
-                entity.Day,entity.Description,entity.LevelId,entity.RoomId,new List<PeopleList>());
+                entity.Day,entity.Description,entity.LevelId,entity.RoomId,new List<Person>());
             _tcRepo.Create(termClass);
             _tcRepo.SaveChanges();
             return operation.Succeeded();
