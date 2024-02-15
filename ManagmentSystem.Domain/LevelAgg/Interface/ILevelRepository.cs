@@ -1,4 +1,5 @@
-﻿using ManagmentSystem.Application.Contract.Level.ViewModels;
+﻿using AccountManagment.Application.Contracts.AccountAppContract.ViewModels;
+using ManagmentSystem.Application.Contract.Level.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,9 @@ namespace ManagmentSystem.Domain.LevelAgg.Interface
 {
     public interface ILevelRepository:IBaseRepository<int,Level>
     {
-        List<GetAllLevelItems> getAllLevels();
+        List<GetAllLevelItems> GetAllLevels();
+
+        EditLevelItem GetLevelItemDetails(int id);
 
     }
 }

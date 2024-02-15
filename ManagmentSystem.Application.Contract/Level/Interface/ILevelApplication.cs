@@ -7,13 +7,15 @@ namespace ManagmentSystem.Application.Contract.Level.Interface
 
         List<GetAllLevelItems> GetAllLevels();
 
-        OperationResult CreateLevel(AddLevelItem entity);
+        EditLevelItem GetLevelItemDetail(int id);
 
-        OperationResult UpdateLevel(EditLevelItem entity);
+        OperationResult AddLevel(AddLevelItem entity);
 
-        OperationResult DeleteLevel(RemoveLevelItem entity);
+        OperationResult EditLevel(EditLevelItem entity);
 
-        OperationResult RestoreLevel(RestoreLevelItem entity);
+        OperationResult DeleteLevel(int id);
+
+        OperationResult RestoreLevel(int entity);
 
     }
 }

@@ -2,11 +2,6 @@
 using ManagmentSystem.Application.Contract.Tuition.ViewModels;
 using ManagmentSystem.Domain.TuitionAgg;
 using ManagmentSystem.Domain.TuitionAgg.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZeroFramework.Application.Common;
 
 namespace ManagmentSystem.Application.TuitionApp

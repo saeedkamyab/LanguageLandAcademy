@@ -1,0 +1,113 @@
+﻿@page
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Level.IndexModel
+@{
+    Layout = "Shared/_AdminLayout";
+    ViewData["title"] = "سطوح";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title pull-right">@ViewData["title"]</h4>
+    </div>
+</div>
+
+
+
+<div class="row mt-4" id="ProductCategoriesDiv">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <a class="btn btn-success m-3" asp-page="Create">اضافه کردن سطح جدید</a>
+            <div class="card">
+                <div class="card-header">لیست سطوح</div>
+                <div class="card-body p-0">
+                    <table id="datatable" class="table table-striped table-bordered m-0">
+                        <thead>
+                            <tr>
+                                <th>شناسه سطح</th>
+                                <th>نام</th>
+                                <th>نوع</th>
+                                <th>تاریخ ایجاد</th>
+                                <th>شهریه (تومان)</th>
+                                <th>تاریخ ویرایش</th>
+                                <th>توضیحات</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.levelItems)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    @switch (item.Type)
+                                    {
+                                        case 1:
+                                            <td>عمومی / عادی</td>
+                                            break;
+                                        case 2:
+                                            <td>عمومی / فشرده</td>
+                                            break;
+                                        case 3:
+                                            <td>خصوصی / عادی</td>
+                                            break;
+                                        case 4:
+                                            <td>خصوصی / فشرده</td>
+                                            break;
+                                    }
+                                    <td>@item.CreationDate</td>
+                                    <td class="fs-4">@item.Fee.ToString("#,#")</td>
+                                    <td>@item.LastUpdate</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a class="btn tableBtn" asp-page="Edit" asp-route-Id="@item.Id"
+                                               data-toggle="tooltip" data-placement="top" title="ویرایش">
+                                                <i class="icon-edit"></i>
+                                            </a>
+                                            @if (!item.IsRemoved)
+                                            {
+                                                <form method="post">
+                                                    <button type="submit" class="btn tableBtn"
+                                                            asp-page-handler="Delete"
+                                                            asp-route-id="@item.Id"
+                                                            data-toggle="tooltip" data-placement="top" title="حذف">
+                                                        <i class="icon-trash-empty"></i>
+                                                    </button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <form method="post">
+                                                    <button type="submit" class="btn tableBtn"
+                                                            asp-page-handler="Restore"
+                                                            asp-route-id="@item.Id"
+                                                            data-toggle="tooltip" data-placement="top" title="بازیابی">
+                                                        <i class="icon-arrows-cw"></i>
+                                                    </button>
+                                                </form>
+                                            }
+
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/adminTheme/assets/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/adminTheme/assets/datatables/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
+    </script>
+}

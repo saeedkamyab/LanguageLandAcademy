@@ -9,7 +9,7 @@ using ZeroFramework.Infrastructure;
 using ManagmentSystem.Domain.LevelAgg;
 using ManagmentSystem.Domain.LevelAgg.Interface;
 using ManagmentSystem.Application.Contract.Level.ViewModels;
-using ManagmentSystem.Application.Contract.Tuition.ViewModels;
+using AccountManagment.Application.Contracts.AccountAppContract.ViewModels;
 
 namespace ManagmentSystem.Infrastructure.EfCore.Repositories
 {
@@ -21,18 +21,32 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
         {
             _context = context;
         }
-
-        public List<GetAllLevelItems> getAllLevels()
+        public List<GetAllLevelItems> GetAllLevels()
         {
             return _context.Levels.Select(le => new GetAllLevelItems
             {
                 Id = le.Id,
-                LevelName = le.LevelName,
+                Name = le.Name,
                 CreationDate = le.CreateDate.ToString(),
-                LevelDescription = le.LevelDescription,
-                LevelType = le.LevelType,
+                Description = le.Description,
+                Type = le.Type,
+                Fee = le.Fee,
+                IsRemoved = le.IsRemoved,
                 LastUpdate = le.LastUpdate.ToString()
             }).ToList();
+        }
+
+        public EditLevelItem GetLevelItemDetails(int id)
+        {
+            return _context.Levels.Select(x => new EditLevelItem
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Fee = x.Fee,
+                Type = x.Type,
+                Description = x.Description,
+            }).FirstOrDefault(x => x.Id == id);
+
         }
     }
 }

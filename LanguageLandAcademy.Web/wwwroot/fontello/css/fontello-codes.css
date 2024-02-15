@@ -14,6 +14,8 @@
 .icon-phone:before { content: '\e80c'; } /* '' */
 .icon-print:before { content: '\e80d'; } /* '' */
 .icon-vcard:before { content: '\e80e'; } /* '' */
+.icon-search:before { content: '\e80f'; } /* '' */
+.icon-arrows-cw:before { content: '\e811'; } /* '' */
 .icon-graduation-cap:before { content: '\f19d'; } /* '' */
 .icon-object-group:before { content: '\f247'; } /* '' */
 .icon-industry:before { content: '\f275'; } /* '' */

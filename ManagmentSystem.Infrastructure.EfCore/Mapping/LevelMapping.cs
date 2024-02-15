@@ -17,9 +17,10 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x=>x.LevelName).IsRequired().HasMaxLength(150);
-            builder.Property(x=>x.LevelType);
-            builder.Property(x=>x.LevelDescription).IsRequired(false).HasMaxLength(300);
+            builder.Property(x=>x.Name).IsRequired().HasMaxLength(150);
+            builder.Property(x=>x.Type);
+            builder.Property(x=>x.Fee);
+            builder.Property(x=>x.Description).IsRequired(false).HasMaxLength(300);
             builder.Property(x => x.CreateDate);
             builder.Property(x => x.LastUpdate);
             builder.Property(x => x.IsRemoved);

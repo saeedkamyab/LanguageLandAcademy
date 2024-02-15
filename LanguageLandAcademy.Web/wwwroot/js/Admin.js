@@ -43,15 +43,14 @@ function passRePassCheck() {
         txtError.className = "text-danger";
     }
 
-    else
-    {
+    else {
         txtError.innerHTML = "گذرواژه و تکرار آن مطابقت دارد.";
         txtError.className = "text-success";
     }
-       
 
 
-} 
+
+}
 
 function getSelectValues(select) {
     var result = [];
@@ -66,4 +65,8 @@ function getSelectValues(select) {
         }
     }
     return result;
+}
+
+function openAddEditPanel() {
+    $("#AddEditPanel").slideToggle()
 }

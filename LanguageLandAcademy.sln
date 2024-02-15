@@ -63,7 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Presentation", "AM.Prese
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LLaQuery", "LLaQuery\LLaQuery.csproj", "{EC9A4179-6D5C-40E6-8175-F09C4369E2FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagment.PresentaionApi", "AccountManagment.PresentaionApi\AccountManagment.PresentaionApi.csproj", "{BD0E05BD-B7D6-4291-AFBE-99B7EEF6712D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagment.PresentaionApi", "AccountManagment.PresentaionApi\AccountManagment.PresentaionApi.csproj", "{BD0E05BD-B7D6-4291-AFBE-99B7EEF6712D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

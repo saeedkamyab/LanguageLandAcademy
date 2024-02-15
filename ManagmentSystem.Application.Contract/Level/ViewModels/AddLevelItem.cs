@@ -2,11 +2,13 @@
 {
     public class AddLevelItem
     {
-        public string LevelName { get; set; }
+        public string Name { get; set; }
 
-        public int LevelType { get; set; }
+        public int Type { get; set; }
 
-        public string LevelDescription { get; set; }
+        public double Fee { get; set; }
+
+        public string Description { get; set; }
 
     }
 }

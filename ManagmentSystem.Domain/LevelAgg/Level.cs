@@ -7,11 +7,13 @@ namespace ManagmentSystem.Domain.LevelAgg
     {
 
 
-        public string LevelName { get; private set; }
+        public string Name { get; private set; }
 
-        public int LevelType { get; private set; }
+        public int Type { get; private set; }
 
-        public string LevelDescription { get; private set; }
+        public double Fee { get; private set; }
+
+        public string Description { get; private set; }
 
         //-----------------------------------------------------------------------
 
@@ -19,24 +21,26 @@ namespace ManagmentSystem.Domain.LevelAgg
 
 
         //========================================================================
-        public Level()
+        //public Level()
+        //{
+        //    TermClasses = new List<TermClass>();
+        //}
+
+        public Level(string name, int type,double fee, string description)
         {
-            TermClasses = new List<TermClass>();
+            Name = name;
+            Type = type;
+            Fee = fee;
+            Description = description;
         }
 
-        public Level(string levelName, int levelType, string levelDescription)
-        {
-            LevelName = levelName;
-            LevelType = levelType;
-            LevelDescription = levelDescription;
-        }
 
-
-        public void Edit(string levelName, int levelType, string levelDescription)
+        public void Edit(string name, int type,double fee, string description)
         {
-            LevelName = levelName;
-            LevelType = levelType;
-            LevelDescription = levelDescription;
+            Name = name;
+            Type = type;
+            Fee = fee;
+            Description = description;
             LastUpdate = DateTime.Now;
         }
 
