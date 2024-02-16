@@ -4,7 +4,7 @@
     {
         #region Properties
 
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public string CreateDate { get; set; }
 

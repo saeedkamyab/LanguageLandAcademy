@@ -13,6 +13,8 @@ namespace ManagmentSystem.Domain.LevelAgg.Interface
     {
         List<GetAllLevelItems> GetAllLevels();
 
+        List<GetAllLevelItems> GetUnDeletedLevels();
+
         EditLevelItem GetLevelItemDetails(int id);
 
     }

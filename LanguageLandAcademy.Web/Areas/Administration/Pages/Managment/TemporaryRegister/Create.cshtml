@@ -1,0 +1,43 @@
+﻿@page
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.TemporaryRegister.CreateModel
+@{
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="card">
+                <div class="card-header">
+                    اضافه کردن پیش ثبت نامی جدید 
+                </div>
+                <div class="card-body" id="AddEditPanel">
+                    <div class="panel-body">
+                        <form class="form-inline d-flex align-items-center row" method="post">
+
+                            <div class="form-group m-2 me-0 ms-0 col-4">
+                                <label asp-for="teRegister.FullName" class="control-label">نام و نام خانوادگی</label>
+                                <input type="text" class="form-control" asp-for="teRegister.FullName">
+                                <span asp-validation-for="teRegister.FullName" class="error"></span>
+                            </div>
+
+                            <div class="form-group m-2 me-0 ms-0 col-4">
+                                <label asp-for="teRegister.PhoneNumbers" class="control-label">شماره تلفن ها(برای جدا کردن شماره تلفن ها از هم از - استفاده کنید)</label>
+                                <input type="text" class="form-control" asp-for="teRegister.PhoneNumbers">
+                                <span asp-validation-for="teRegister.PhoneNumbers" class="error"></span>
+                            </div>
+
+                            <div class="form-group mt-2 col-12">
+                                <label asp-for="teRegister.Description" class="control-label">توضیحات</label>
+                                <textarea type="text" class="form-control" asp-for="teRegister.Description"></textarea>
+                                <span asp-validation-for="teRegister.Description" class="error"></span>
+                            </div>
+                            <div class="form-group m-2 col-9">
+                                <button type="submit" class="btn btn-success waves-effect waves-light col-1 m-2">ذخیره</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

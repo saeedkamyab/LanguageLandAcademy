@@ -6,15 +6,17 @@ namespace ManagmentSystem.Application.Contract.TemporaryRegister.Interface
     public interface ITemporaryRegisterApplication
     {
 
-        List<GetAllTemporaryRegisterItems> GetAllLevels();
+        List<AllTemporaryRegister> GetAllTeRegister();
 
-        OperationResult CreateLevel(CreateTemporaryRegister entity);
+        EditTemporaryRegister GetTeRegisterItemDetail(int id);
 
-        OperationResult UpdateLevel(EditTemporaryRegister entity);
+        OperationResult CreateTeRegister(CreateTemporaryRegister entity);
 
-        OperationResult DeleteLevel(RemoveTemporaryRegister entity);
+        OperationResult UpdateTeRegister(EditTemporaryRegister entity);
 
-        OperationResult RestoreLevel(RestoreTemporaryRegister entity);
+        OperationResult DeleteTeRegister(int id);
+
+        OperationResult RestoreTeRegister(int id);
 
     }
 }

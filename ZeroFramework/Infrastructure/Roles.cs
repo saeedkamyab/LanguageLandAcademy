@@ -11,9 +11,9 @@
         {
             switch (id)
             {
-                case 1:
-                    return "مدیرسیستم";
                 case 2:
+                    return "مدیر ارشد";
+                case 20:
                     return "کارمند";
                 case 3:
                     return "مدرس";

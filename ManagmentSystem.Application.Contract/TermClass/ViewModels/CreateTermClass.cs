@@ -15,6 +15,13 @@ namespace ManagmentSystem.Application.Contract.TermClass.ViewModels
 
         public int LevelId { get;  set; }
 
-        public int RoomId { get; set; }
+        public string Room { get; set; }
+
+        public string StartDate { get; set; }
+
+        public string EndDate { get; set; }
+
+        public bool Status { get; set; }
+
     }
 }

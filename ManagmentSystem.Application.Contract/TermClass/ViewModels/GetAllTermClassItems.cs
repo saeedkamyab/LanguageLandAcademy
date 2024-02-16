@@ -16,6 +16,19 @@
 
         public string Day { get; set; }
 
+        public string Room { get;  set; }
+
+        public string StartDate { get;  set; }
+
+        public string EndDate { get;  set; }
+
+        public bool Status { get;  set; }
+
+        public int LevelId { get; set; }
+
+        public string Level { get; set; }
+
         public string Description { get; set; }
+
     }
 }

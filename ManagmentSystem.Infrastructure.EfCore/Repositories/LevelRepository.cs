@@ -48,5 +48,20 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
             }).FirstOrDefault(x => x.Id == id);
 
         }
+
+        public List<GetAllLevelItems> GetUnDeletedLevels()
+        {
+            return _context.Levels.Select(le => new GetAllLevelItems
+            {
+                Id = le.Id,
+                Name = le.Name,
+                CreationDate = le.CreateDate.ToString(),
+                Description = le.Description,
+                Type = le.Type,
+                Fee = le.Fee,
+                IsRemoved = le.IsRemoved,
+                LastUpdate = le.LastUpdate.ToString()
+            }).Where(x => x.IsRemoved == false).ToList();
+        }
     }
 }

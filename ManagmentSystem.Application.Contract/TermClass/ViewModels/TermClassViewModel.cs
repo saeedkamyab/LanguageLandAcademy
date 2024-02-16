@@ -10,7 +10,7 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
     public class TermClassViewModel
     {
-        #region Properties
+
 
         public long Id { get;  set; }
 
@@ -28,12 +28,14 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 
         public string Description { get; set; }
 
-        public List<long> People { get; set; }
-
         public int LevelId { get;  set; }
 
-        public int RoomId { get; set; }
+        public string Room { get; set; }
 
-        #endregion
+        public string StartDate { get; set; }
+
+        public string EndDate { get; set; }
+
+        public bool Status { get; set; }
     }
 }

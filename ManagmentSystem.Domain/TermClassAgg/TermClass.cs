@@ -9,6 +9,10 @@ namespace ManagmentSystem.Domain.TermClassAgg
         public string StartTime { get; private set; }
         public string EndTime { get; private set; }
         public string Day { get; private set; }
+        public string Room { get; private set; }
+        public string StartDate { get; private set; }
+        public string EndDate { get; private set; }
+        public bool Status { get; private set; }
         public string Description { get; private set; }
 
         //-----------------------------------------------------------
@@ -16,39 +20,41 @@ namespace ManagmentSystem.Domain.TermClassAgg
         public Level Level { get; private set; }
 
 
-        public int RoomId { get; private set; }
-        public Room Room { get; private set; }
-
-        public List<Person> People { get; private set; }
-
         //===========================================================
         protected TermClass()
         {
 
         }
-
-        public TermClass(string startTime, string endTime, string day, 
-            string description,int levelId,int roomId, List<Person> people)
+        public TermClass(string startTime, string endTime, 
+            string day, string room, 
+            string startDate, string endDate,
+            string description, int levelId)
         {
             StartTime = startTime;
             EndTime = endTime;
             Day = day;
+            Room = room;
+            StartDate = startDate;
+            EndDate = endDate;
+            Status = true;
             Description = description;
             LevelId = levelId;
-            RoomId = roomId;
-            People = people;
         }
 
-        public void Edit(string startTime, string endTime, string day, 
-            string description, int levelId, int roomId, List<Person> people)
+        public void Edit(string startTime, string endTime, 
+            string day, string room,
+            string startDate, string endDate,
+            bool status, string description, int levelId)
         {
             StartTime = startTime;
             EndTime = endTime;
             Day = day;
+            Room = room;
+            StartDate = startDate;
+            EndDate = endDate;
+            Status = status;
             Description = description;
             LevelId = levelId;
-            RoomId = roomId;
-            People = people;
         }
 
         public void Remove()

@@ -73,7 +73,7 @@
                                 <tr>
                                     <td>@item.Id</td>
                                     <td>
-                                        @if (item.ProfilePhoto == null)
+                                        @if (item.ProfilePhoto == "unImage.png" || item.ProfilePhoto == null)
                                         {
                                             <img src="~/images/unImage.png" class="profilePhoto" />
                                         }

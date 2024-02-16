@@ -6,6 +6,8 @@ namespace ManagmentSystem.Application.Contract.Level.Interface
     {
 
         List<GetAllLevelItems> GetAllLevels();
+        
+        List<GetAllLevelItems> GetUnDeletedLevels();
 
         EditLevelItem GetLevelItemDetail(int id);
 

@@ -66,5 +66,10 @@ namespace ManagmentSystem.Application.LevelApp
         {
             return _levelRepository.GetLevelItemDetails(id);
         }
+
+        public List<GetAllLevelItems> GetUnDeletedLevels()
+        {
+            return _levelRepository.GetUnDeletedLevels();
+        }
     }
 }
