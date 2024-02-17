@@ -14,40 +14,56 @@ namespace ManagmentSystem.Application.TermClassApp
         {
             _tcRepo = tcRepo;
         }
+        public List<GetAllTermClassItems> GetAllTermClass()
+        {
+            return _tcRepo.getAllTermClasses();
+        }
 
         public OperationResult CreateTermClass(CreateTermClass entity)
         {
             var operation = new OperationResult();
             var termClass = new TermClass(entity.StartTime,entity.EndTime,
-                entity.Day,entity.Description,entity.LevelId,entity.RoomId,new List<Person>());
+                entity.Day,entity.Room,entity.StartDate,entity.EndDate,entity.Description,entity.LevelId);
             _tcRepo.Create(termClass);
             _tcRepo.SaveChanges();
             return operation.Succeeded();
         }
-
-        public OperationResult DeleteTermClass(RemoveTermClassItem entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GetAllTermClassItems> GetAllTermClass()
-        {
-          return _tcRepo.getAllTermClasses();
-        }
-
         public EditTermClass GetDetails(int id)
         {
             return _tcRepo.GetDetails(id);
         }
-
-        public OperationResult RestoreTermClass(RestoreTermClassItem entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public OperationResult UpdateTermClass(EditTermClass entity)
         {
-            throw new NotImplementedException();
+            var operation = new OperationResult();
+            var termClass = _tcRepo.Get(entity.Id);
+            if (termClass == null)
+                return operation.Failed(ApplicationMessages.RecordNotFound);
+            termClass.Edit(entity.StartTime, entity.EndTime,
+                entity.Day, entity.Room, entity.StartDate, entity.EndDate,entity.Status, entity.Description, entity.LevelId);
+            _tcRepo.SaveChanges();
+            return operation.Succeeded();
         }
+        public OperationResult DeleteTermClass(long id)
+        {
+            OperationResult result = new OperationResult();
+            var termClass = _tcRepo.Get(id);
+            if (termClass == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            termClass.Remove();
+            _tcRepo.SaveChanges();
+            return result.Succeeded();
+        }
+        public OperationResult RestoreTermClass(long id)
+        {
+            OperationResult result = new OperationResult();
+            var termClass = _tcRepo.Get(id);
+            if (termClass == null)
+                return result.Failed(ApplicationMessages.RecordNotFound);
+            termClass.Restore();
+            _tcRepo.SaveChanges();
+            return result.Succeeded();
+        }
+
+       
     }
 }

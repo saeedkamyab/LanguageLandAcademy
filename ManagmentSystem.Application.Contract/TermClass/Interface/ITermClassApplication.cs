@@ -13,9 +13,9 @@ namespace ManagmentSystem.Application.Contract.TermClass.Interface
 
         OperationResult UpdateTermClass(EditTermClass entity);
 
-        OperationResult DeleteTermClass(RemoveTermClassItem entity);
+        OperationResult DeleteTermClass(long entity);
 
-        OperationResult RestoreTermClass(RestoreTermClassItem entity);
+        OperationResult RestoreTermClass(long entity);
 
     }
 }

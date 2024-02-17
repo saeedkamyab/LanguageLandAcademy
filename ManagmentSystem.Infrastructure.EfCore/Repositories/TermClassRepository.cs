@@ -26,6 +26,9 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 EndTime = tc.EndTime,
                 StartTime= tc.StartTime,
                 IsRemoved = tc.IsRemoved,
+                Room=tc.Room,
+                StartDate=tc.StartDate,
+                EndDate=tc.EndDate,
                 LastUpdate = tc.LastUpdate.ToString()
                 
             }).ToList();
@@ -41,17 +44,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 Day = x.Day,
                 Description = x.Description,
                 LevelId = x.LevelId,
-                RoomId = x.RoomId,
-                People=MapPeople(x.People.ToList()),
+                Room = x.Room,
             }).AsNoTracking().FirstOrDefault(x => x.Id == id);
           
-            termClass.People = termClass.People.ToList();
-
             return termClass;
         }
-        private static List<long> MapPeople(List<Person> people)
-        {
-            return people.Select(x => new Person(x.AccountId).AccountId).ToList();
-        }
+        
     }
 }

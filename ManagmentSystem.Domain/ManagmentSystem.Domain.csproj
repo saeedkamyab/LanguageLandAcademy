@@ -12,4 +12,8 @@
     <ProjectReference Include="..\ZeroFramework\ZeroFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RegisterInAgg\Interface\" />
+  </ItemGroup>
+
 </Project>

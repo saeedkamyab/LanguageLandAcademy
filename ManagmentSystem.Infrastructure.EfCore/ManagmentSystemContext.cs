@@ -1,5 +1,4 @@
 ﻿using ManagmentSystem.Domain.LevelAgg;
-using ManagmentSystem.Domain.RoomAgg;
 using ManagmentSystem.Domain.TemporaryRegisterAgg;
 using ManagmentSystem.Domain.TermClassAgg;
 using ManagmentSystem.Domain.TuitionAgg;
@@ -12,13 +11,9 @@ namespace ManagmentSystem.Infrastructure.EfCore
     {
         public DbSet<Level> Levels { get; set; }
 
-        public DbSet<Room> Rooms { get; set; }
-
         public DbSet<TemporaryRegister> TemporaryRegisters { get; set; }
 
         public DbSet<TermClass> TermClasses { get; set; }
-
-        public DbSet<Person> People { get; set; }
 
         public DbSet<Tuition> Tuitions { get; set; }
 

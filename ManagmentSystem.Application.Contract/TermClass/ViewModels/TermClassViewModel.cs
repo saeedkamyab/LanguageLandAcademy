@@ -10,8 +10,6 @@ namespace ManagmentSystem.Application.Contract.Tuition.ViewModels
 {
     public class TermClassViewModel
     {
-
-
         public long Id { get;  set; }
 
         public string CreateDate { get;  set; }

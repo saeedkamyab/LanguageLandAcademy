@@ -1,5 +1,5 @@
 ﻿using ManagmentSystem.Domain.LevelAgg;
-using ManagmentSystem.Domain.RoomAgg;
+using ManagmentSystem.Domain.RegisterInAgg;
 using ZeroFramework.Domain;
 
 namespace ManagmentSystem.Domain.TermClassAgg
@@ -19,7 +19,7 @@ namespace ManagmentSystem.Domain.TermClassAgg
         public int LevelId { get; private set; }
         public Level Level { get; private set; }
 
-
+        public List<Register> Registers { get; private set; }
         //===========================================================
         protected TermClass()
         {

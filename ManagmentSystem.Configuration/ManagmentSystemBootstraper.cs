@@ -1,16 +1,13 @@
 ﻿using ManagmentSystem.Application.Contract.Level.Interface;
-using ManagmentSystem.Application.Contract.Room.Interface;
 using ManagmentSystem.Application.Contract.TemporaryRegister.Interface;
 using ManagmentSystem.Application.Contract.TermClass.Interface;
 using ManagmentSystem.Application.Contract.Tuition.Interface;
 using ManagmentSystem.Application.LevelApp;
-using ManagmentSystem.Application.RoomApp;
 using ManagmentSystem.Application.TemporaryRegisterApp;
 using ManagmentSystem.Application.TermClassApp;
 using ManagmentSystem.Application.TuitionApp;
 using ManagmentSystem.Configuration.Permissions;
 using ManagmentSystem.Domain.LevelAgg.Interface;
-using ManagmentSystem.Domain.RoomAgg.Interface;
 using ManagmentSystem.Domain.TemporaryRegisterAgg.Interface;
 using ManagmentSystem.Domain.TermClassAgg.Interface;
 using ManagmentSystem.Domain.TuitionAgg.Interface;
@@ -36,9 +33,6 @@ namespace ManagmentSystem.Configuration
 
             services.AddTransient<ILevelApplication, LevelApplication>();
             services.AddTransient<ILevelRepository, LevelRepository>();
-
-            services.AddTransient<IRoomApplication, RoomApplication>();
-            services.AddTransient<IRoomRepository, RoomRepository>();
 
             services.AddTransient<ITemporaryRegisterApplication, TemporaryRegisterApplication>();
             services.AddTransient<ITemporaryRegisterRepository, TemporaryRegisterRepository>();

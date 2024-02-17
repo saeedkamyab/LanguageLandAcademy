@@ -1,4 +1,5 @@
-﻿using ManagmentSystem.Domain.TermClassAgg;
+﻿using ManagmentSystem.Domain.LevelAgg;
+using ManagmentSystem.Domain.TermClassAgg;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -19,22 +20,23 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.Property(t => t.StartTime);
             builder.Property(t => t.EndTime);
             builder.Property(t => t.CreateDate);
+            builder.Property(t => t.Room);
             builder.Property(t => t.Description);
+            builder.Property(t => t.StartDate);
+            builder.Property(t => t.EndDate);
+            builder.Property(t => t.Status);
             builder.Property(t => t.Day);
             builder.Property(t => t.LastUpdate);
             builder.Property(t => t.IsRemoved);
 
-
             builder.HasOne(x => x.Level)
-            .WithMany(x => x.TermClasses)
-            .HasForeignKey(x => x.LevelId);
+                .WithMany(x => x.TermClasses)
+                .HasForeignKey(x => x.LevelId);
 
-            builder.HasOne(x => x.Room)
-        .WithMany(x => x.TermClasses)
-        .HasForeignKey(x => x.RoomId);
-
-
-            builder.HasMany(t => t.People).WithOne(t=>t.TermClass).HasForeignKey(t=>t.Id);
+            builder.HasMany(x => x.Registers)
+                .WithOne(x => x.TermClass)
+                .HasForeignKey(x=>x.TermClassId);
+        
         }
     }
 }
