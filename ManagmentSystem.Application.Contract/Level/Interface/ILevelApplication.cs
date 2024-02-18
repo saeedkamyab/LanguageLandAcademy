@@ -17,7 +17,7 @@ namespace ManagmentSystem.Application.Contract.Level.Interface
 
         OperationResult DeleteLevel(int id);
 
-        OperationResult RestoreLevel(int entity);
+        OperationResult RestoreLevel(int id);
 
     }
 }

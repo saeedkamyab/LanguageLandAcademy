@@ -59,6 +59,54 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.ToTable("Levels", (string)null);
                 });
 
+            modelBuilder.Entity("ManagmentSystem.Domain.RegisterInAgg.Register", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Final")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Listening")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MidTerm")
+                        .HasColumnType("int");
+
+                    b.Property<long>("PeopleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Reading")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Speaking")
+                        .HasColumnType("int");
+
+                    b.Property<long>("TermClassId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Writting")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TermClassId");
+
+                    b.ToTable("Registers", (string)null);
+                });
+
             modelBuilder.Entity("ManagmentSystem.Domain.TemporaryRegisterAgg.TemporaryRegister", b =>
                 {
                     b.Property<int>("Id")
@@ -150,7 +198,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 
                     b.HasIndex("LevelId");
 
-                    b.ToTable("TermClass", (string)null);
+                    b.ToTable("TermClasses", (string)null);
                 });
 
             modelBuilder.Entity("ManagmentSystem.Domain.TuitionAgg.Tuition", b =>
@@ -191,6 +239,17 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.ToTable("Tuitions", (string)null);
                 });
 
+            modelBuilder.Entity("ManagmentSystem.Domain.RegisterInAgg.Register", b =>
+                {
+                    b.HasOne("ManagmentSystem.Domain.TermClassAgg.TermClass", "TermClass")
+                        .WithMany("Registers")
+                        .HasForeignKey("TermClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TermClass");
+                });
+
             modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.TermClass", b =>
                 {
                     b.HasOne("ManagmentSystem.Domain.LevelAgg.Level", "Level")
@@ -205,6 +264,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
             modelBuilder.Entity("ManagmentSystem.Domain.LevelAgg.Level", b =>
                 {
                     b.Navigation("TermClasses");
+                });
+
+            modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.TermClass", b =>
+                {
+                    b.Navigation("Registers");
                 });
 #pragma warning restore 612, 618
         }

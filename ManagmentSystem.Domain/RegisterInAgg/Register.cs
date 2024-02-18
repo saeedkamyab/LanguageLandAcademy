@@ -13,8 +13,6 @@ namespace ManagmentSystem.Domain.RegisterInAgg
     {
         public long PeopleId {  get;private set; }
 
-        public string Description {  get; private set; }
-
         public int Reading { get; private set; }
         public int Writting { get; private set; }
         public int Speaking { get; private set; }
@@ -27,9 +25,14 @@ namespace ManagmentSystem.Domain.RegisterInAgg
         public TermClass TermClass { get; private set; }
 
 
-
         public Register(long peopleId, long termClassId)
         {
+            PeopleId = peopleId;
+            TermClassId = termClassId;
+        }
+        public Register(long id,long peopleId, long termClassId)
+        {
+            Id= id;
             PeopleId = peopleId;
             TermClassId = termClassId;
         }

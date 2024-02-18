@@ -8,8 +8,8 @@ namespace ZeroFramework.Domain
 {
     public class EntityBase<Tkey>
     {
-        public Tkey Id { get; private set; }
-        public DateTime CreateDate { get; private set; }
+        public Tkey Id { get; set; }
+        public DateTime CreateDate { get; set; }
         public DateTime LastUpdate { get; set; }
         public bool IsRemoved { get; set; }
      

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountManagment.Infrastructure.EfCore.Migrations
 {
     [DbContext(typeof(AccountManagmentContext))]
-    [Migration("20240210070310_addAccountmangment")]
-    partial class addAccountmangment
+    [Migration("20240217045542_AddAccountSystem")]
+    partial class AddAccountSystem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

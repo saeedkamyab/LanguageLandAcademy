@@ -70,3 +70,35 @@ function getSelectValues(select) {
 function openAddEditPanel() {
     $("#AddEditPanel").slideToggle()
 }
+
+let peopleIdList = []
+
+function AddPeople(id, fullname) {
+
+    /*  if (!peopleIdList.includes(id)) {*/
+
+    var pelopleList = document.getElementById("RegisteredPeople");
+
+    var li = document.createElement("li");
+
+    var span = document.createElement("span");
+    span.appendChild(document.createTextNode(fullname));
+
+    var i = document.createElement("i");
+    span.appendChild(document.createTextNode("deletebt"));
+
+
+    li.setAttribute("class", "list-group-item");
+
+    li.setAttribute("data-id", id); // added line*/
+    pelopleList.appendChild(li);
+    peopleIdList.push(id);
+
+    //} else {
+    //    alert("تکراری");
+    //}
+
+
+    /*  alert(li.id);*/
+
+}

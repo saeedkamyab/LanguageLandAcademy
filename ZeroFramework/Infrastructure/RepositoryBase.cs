@@ -27,6 +27,7 @@ namespace ZeroFramework.Infrastructure
         {
             try
             {
+                
                 _context.Remove(entity);
                 return true;
             }

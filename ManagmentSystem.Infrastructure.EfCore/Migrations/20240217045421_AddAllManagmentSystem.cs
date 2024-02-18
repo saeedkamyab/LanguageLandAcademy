@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class newMigForManagmentSystem : Migration
+    public partial class AddAllManagmentSystem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,9 +17,10 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LevelName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LevelType = table.Column<int>(type: "int", nullable: false),
-                    LevelDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    Fee = table.Column<double>(type: "float", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false)
@@ -30,20 +31,21 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rooms",
+                name: "TemporaryRegister",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoomName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descriptions = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    PhoneNumbers = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rooms", x => x.Id);
+                    table.PrimaryKey("PK_TemporaryRegister", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,7 +69,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TermClass",
+                name: "TermClasses",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -75,83 +77,85 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     StartTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EndTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Day = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Room = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EndDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LevelId = table.Column<int>(type: "int", nullable: false),
-                    RoomId = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TermClass", x => x.Id);
+                    table.PrimaryKey("PK_TermClasses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TermClass_Levels_LevelId",
+                        name: "FK_TermClasses_Levels_LevelId",
                         column: x => x.LevelId,
                         principalTable: "Levels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TermClass_Rooms_RoomId",
-                        column: x => x.RoomId,
-                        principalTable: "Rooms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "StudentTermList",
+                name: "Registers",
                 columns: table => new
                 {
-                    PersonId = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountId = table.Column<long>(type: "bigint", nullable: false),
-                    TermClassId = table.Column<long>(type: "bigint", nullable: false)
+                    PeopleId = table.Column<long>(type: "bigint", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Reading = table.Column<int>(type: "int", nullable: false),
+                    Writting = table.Column<int>(type: "int", nullable: false),
+                    Speaking = table.Column<int>(type: "int", nullable: false),
+                    Listening = table.Column<int>(type: "int", nullable: false),
+                    MidTerm = table.Column<int>(type: "int", nullable: false),
+                    Final = table.Column<int>(type: "int", nullable: false),
+                    TermClassId = table.Column<long>(type: "bigint", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentTermList", x => x.PersonId);
+                    table.PrimaryKey("PK_Registers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StudentTermList_TermClass_TermClassId",
+                        name: "FK_Registers_TermClasses_TermClassId",
                         column: x => x.TermClassId,
-                        principalTable: "TermClass",
+                        principalTable: "TermClasses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentTermList_TermClassId",
-                table: "StudentTermList",
+                name: "IX_Registers_TermClassId",
+                table: "Registers",
                 column: "TermClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TermClass_LevelId",
-                table: "TermClass",
+                name: "IX_TermClasses_LevelId",
+                table: "TermClasses",
                 column: "LevelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TermClass_RoomId",
-                table: "TermClass",
-                column: "RoomId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StudentTermList");
+                name: "Registers");
+
+            migrationBuilder.DropTable(
+                name: "TemporaryRegister");
 
             migrationBuilder.DropTable(
                 name: "Tuitions");
 
             migrationBuilder.DropTable(
-                name: "TermClass");
+                name: "TermClasses");
 
             migrationBuilder.DropTable(
                 name: "Levels");
-
-            migrationBuilder.DropTable(
-                name: "Rooms");
         }
     }
 }

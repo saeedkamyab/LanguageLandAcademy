@@ -13,7 +13,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
     {
         public void Configure(EntityTypeBuilder<Register> builder)
         {
-            builder.ToTable("TermClass");
+            builder.ToTable("Registers");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.PeopleId);
@@ -25,7 +25,6 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.Property(t => t.Final);
             builder.Property(t => t.CreateDate);
             builder.Property(t => t.LastUpdate);
-            builder.Property(t => t.Description);
             builder.Property(t => t.IsRemoved);
 
 

@@ -41,6 +41,15 @@ namespace ManagmentSystem.Configuration.Permissions
                          new PermissionDto(ManagmentSystemPermissons.DeleteTermClass,"DeleteTermClass"),
                          new PermissionDto(ManagmentSystemPermissons.SearchTermClassList,"SearchTermClass"),
                       }
+                },
+                  {
+                      "Register" , new List<PermissionDto>
+                      {
+                         new PermissionDto(ManagmentSystemPermissons.RegisterList,"RegisterList"),
+                         new PermissionDto(ManagmentSystemPermissons.CreateRegister,"CreateRegister"),
+                         new PermissionDto(ManagmentSystemPermissons.EditRegister,"EditRegister"),
+                         new PermissionDto(ManagmentSystemPermissons.DeleteRegister,"DeleteRegister"),
+                      }
                 }
 
             };

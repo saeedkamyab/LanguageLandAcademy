@@ -14,7 +14,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
     {
         public void Configure(EntityTypeBuilder<TermClass> builder)
         {
-            builder.ToTable("TermClass");
+            builder.ToTable("TermClasses");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.StartTime);

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ManagmentSystem.Infrastructure.EfCore.Migrations
 {
     [DbContext(typeof(ManagmentSystemContext))]
-    [Migration("20240212120810_editPeopleList")]
-    partial class editPeopleList
+    [Migration("20240217045421_AddAllManagmentSystem")]
+    partial class AddAllManagmentSystem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,22 +36,25 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<double>("Fee")
+                        .HasColumnType("float");
+
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LevelDescription")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("LevelName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("LevelType")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -59,20 +62,23 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.ToTable("Levels", (string)null);
                 });
 
-            modelBuilder.Entity("ManagmentSystem.Domain.RoomAgg.Room", b =>
+            modelBuilder.Entity("ManagmentSystem.Domain.RegisterInAgg.Register", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Descriptions")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Final")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
@@ -80,14 +86,32 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.Property<DateTime>("LastUpdate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RoomName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                    b.Property<int>("Listening")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MidTerm")
+                        .HasColumnType("int");
+
+                    b.Property<long>("PeopleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Reading")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Speaking")
+                        .HasColumnType("int");
+
+                    b.Property<long>("TermClassId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Writting")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.HasIndex("TermClassId");
+
+                    b.ToTable("Registers", (string)null);
                 });
 
             modelBuilder.Entity("ManagmentSystem.Domain.TemporaryRegisterAgg.TemporaryRegister", b =>
@@ -126,22 +150,6 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.ToTable("TemporaryRegister", (string)null);
                 });
 
-            modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.Person", b =>
-                {
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("AccountId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("TermClassId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("People");
-                });
-
             modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.TermClass", b =>
                 {
                     b.Property<long>("Id")
@@ -161,6 +169,10 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EndDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EndTime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -174,20 +186,26 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.Property<int>("LevelId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
+                    b.Property<string>("Room")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StartTime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("LevelId");
 
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("TermClass", (string)null);
+                    b.ToTable("TermClasses", (string)null);
                 });
 
             modelBuilder.Entity("ManagmentSystem.Domain.TuitionAgg.Tuition", b =>
@@ -228,11 +246,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.ToTable("Tuitions", (string)null);
                 });
 
-            modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.Person", b =>
+            modelBuilder.Entity("ManagmentSystem.Domain.RegisterInAgg.Register", b =>
                 {
                     b.HasOne("ManagmentSystem.Domain.TermClassAgg.TermClass", "TermClass")
-                        .WithMany("People")
-                        .HasForeignKey("Id")
+                        .WithMany("Registers")
+                        .HasForeignKey("TermClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -247,15 +265,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ManagmentSystem.Domain.RoomAgg.Room", "Room")
-                        .WithMany("TermClasses")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Level");
-
-                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("ManagmentSystem.Domain.LevelAgg.Level", b =>
@@ -263,14 +273,9 @@ namespace ManagmentSystem.Infrastructure.EfCore.Migrations
                     b.Navigation("TermClasses");
                 });
 
-            modelBuilder.Entity("ManagmentSystem.Domain.RoomAgg.Room", b =>
-                {
-                    b.Navigation("TermClasses");
-                });
-
             modelBuilder.Entity("ManagmentSystem.Domain.TermClassAgg.TermClass", b =>
                 {
-                    b.Navigation("People");
+                    b.Navigation("Registers");
                 });
 #pragma warning restore 612, 618
         }

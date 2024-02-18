@@ -23,7 +23,7 @@ namespace ZeroFramework.Domain.BaseInterface
 
         void Update(TEntity entity);
 
-        //bool Delete(TEntity entity);
+        bool Delete(TEntity entity);
 
         //bool DeleteRange(List<TEntity> entities);
 

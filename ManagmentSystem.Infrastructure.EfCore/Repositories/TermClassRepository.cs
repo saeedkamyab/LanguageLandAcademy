@@ -29,6 +29,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 Room=tc.Room,
                 StartDate=tc.StartDate,
                 EndDate=tc.EndDate,
+                Status=tc.Status,
                 LastUpdate = tc.LastUpdate.ToString()
                 
             }).ToList();

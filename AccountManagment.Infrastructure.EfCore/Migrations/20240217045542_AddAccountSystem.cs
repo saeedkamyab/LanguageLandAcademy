@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccountManagment.Infrastructure.EfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class AccountManagment : Migration
+    public partial class AddAccountSystem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

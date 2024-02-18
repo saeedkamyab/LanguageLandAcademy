@@ -1,4 +1,5 @@
 ﻿using ManagmentSystem.Domain.LevelAgg;
+using ManagmentSystem.Domain.RegisterInAgg;
 using ManagmentSystem.Domain.TemporaryRegisterAgg;
 using ManagmentSystem.Domain.TermClassAgg;
 using ManagmentSystem.Domain.TuitionAgg;
@@ -14,6 +15,8 @@ namespace ManagmentSystem.Infrastructure.EfCore
         public DbSet<TemporaryRegister> TemporaryRegisters { get; set; }
 
         public DbSet<TermClass> TermClasses { get; set; }
+
+        public DbSet<Register> Registers { get; set; }
 
         public DbSet<Tuition> Tuitions { get; set; }
 

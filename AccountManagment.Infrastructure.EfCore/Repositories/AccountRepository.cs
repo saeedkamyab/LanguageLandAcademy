@@ -61,6 +61,7 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
             {
                 Id = x.Id,
                 FullName = x.FullName,
+                FName=x.FName,
                 ProfilePhoto = x.ProfilePhoto,
                 Role = x.Role.Name,
                 RoleId = x.RoleId,

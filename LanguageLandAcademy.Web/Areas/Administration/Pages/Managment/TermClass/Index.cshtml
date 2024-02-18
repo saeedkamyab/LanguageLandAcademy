@@ -57,11 +57,12 @@
                                     <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
                                        class="btn btn-icon waves-effect waves-light btn-danger m-b-5 "> حذف</a>
                                 }
-                               @*  @if (item.TuitionStatus == false)
+                                @if (item.Status == true)
                                 {
-                                    <a asp-page="./Index" asp-page-handler="Pay" asp-route-id="@item.Id"
-                                       class="btn btn-icon waves-effect waves-light btn-success m-b-5 ">پرداخت</a>
-                                } *@
+                                    <a asp-page="/Managment/Register/Create" 
+                                       asp-route-Id="@item.Id"
+                                       class="btn btn-icon waves-effect waves-light btn-success m-b-5 ">اضافه کردن افراد به ترم / دوره</a>
+                                }
                             </td>
                         </tr>
                     }
