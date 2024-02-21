@@ -3,7 +3,7 @@
 @{
 }
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="card">
@@ -13,20 +13,20 @@
                 <div class="card-body">
                     <div class="panel-body">
                         <form class="form-inline row" role="form" method="get">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group col-3">
-                                <input type="text" asp-for="tId" />
+                                <input type="hidden" asp-for="tId" />
                                 <input class="form-control m-2" asp-for="searchModel.Fullname"
                                        placeholder="نام">
-                            </div>
+                               </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light col-1 m-2"
-                                    asp-route-id="3">
+                                    >
                                 جستجو
                             </button>
-
-
-                            <a class="btn btn-primary waves-effect waves-light col-1 m-2" asp-page="./Index">مشاهده همه</a>
+                            <a class="btn btn-primary waves-effect waves-light col-1 m-2" asp-page="/Managment/Register/Create" asp-route-id="@Model.tId">مشاهده همه</a>
+                            <span asp-validation-for="searchModel.Fullname" class="text-danger col-3 m-2"></span>
                         </form>
-                    </div>
+                      </div>
                     @*Search Result Table*@
                     <div class="row mt-4" id="ProductCategoriesDiv">
                         <div class="col-md-12">
@@ -177,4 +177,8 @@
 </div>
 
 
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
