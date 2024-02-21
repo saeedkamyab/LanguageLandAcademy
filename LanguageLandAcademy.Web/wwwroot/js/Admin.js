@@ -73,9 +73,10 @@ function openAddEditPanel() {
 
 let peopleIdList = []
 
-function AddPeople(id, fullname) {
+function AddPerson(id, fullname) {
+    var txtIds = document.getElementById("txtIds");
 
-    /*  if (!peopleIdList.includes(id)) {*/
+     if (!peopleIdList.includes(id)) {
 
     var pelopleList = document.getElementById("RegisteredPeople");
 
@@ -85,20 +86,31 @@ function AddPeople(id, fullname) {
     span.appendChild(document.createTextNode(fullname));
 
     var i = document.createElement("i");
-    span.appendChild(document.createTextNode("deletebt"));
+    i.setAttribute("class","icon-cancel-circled");
+    i.setAttribute("role", "button");
+    i.setAttribute("onclick", "RemovePerson("+id+")");
 
-
-    li.setAttribute("class", "list-group-item");
-
+    li.setAttribute("class", "list-group-item d-flex align-items-center justify-content-between");
+    li.appendChild(span);
+    li.appendChild(i);
     li.setAttribute("data-id", id); // added line*/
+
     pelopleList.appendChild(li);
-    peopleIdList.push(id);
+         peopleIdList.push(id);
+         txtIds.value = peopleIdList;
+    } else {
+        alert("تکراری");
+    }
+}
 
-    //} else {
-    //    alert("تکراری");
-    //}
-
-
-    /*  alert(li.id);*/
+function RemovePerson(id) {
+    var pelopleList = document.getElementById("RegisteredPeople");
+    var item = document.querySelector("[data-id='"+id+"']");
+    var index = peopleIdList.indexOf(id);
+    if (index != -1) 
+        peopleIdList.splice(index, 1);
+    pelopleList.removeChild(item);
 
 }
+
+

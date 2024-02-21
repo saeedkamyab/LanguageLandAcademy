@@ -23,6 +23,11 @@ namespace ZeroFramework.Infrastructure
             _context.Add(entity);
         }
 
+        public void CreateRange(List<TEntity> entity)
+        {
+        _context.AddRange(entity);
+        }
+
         public bool Delete(TEntity entity)
         {
             try
@@ -67,6 +72,7 @@ namespace ZeroFramework.Infrastructure
         public void SaveChanges()
         {
             _context.SaveChanges();
+            _context.Dispose();
         }
 
         public void Update(TEntity entity)

@@ -5,6 +5,7 @@ using ManagmentSystem.Domain.LevelAgg;
 using ManagmentSystem.Domain.LevelAgg.Interface;
 using ManagmentSystem.Domain.RegisterInAgg;
 using ManagmentSystem.Domain.RegisterInAgg.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,21 @@ namespace ManagmentSystem.Application.RegisterApp
             _ReRepository.SaveChanges();
             return result.Succeeded();
         }
-
+        public OperationResult AddRegistrationRange(List<AddRegisteration> entity)
+        {
+            var result = new OperationResult();
+          
+            List<Register> reg=new List<Register>();
+          
+            foreach (var item in entity)
+            {
+                reg.Add(new Register(item.PeopleId, item.TermClassId));
+            }
+            
+            _ReRepository.CreateRange(reg);
+            _ReRepository.SaveChanges();
+            return result.Succeeded();
+        }
         public OperationResult EditRegistration(EditRegisteration entity)
         {
             var operation = new OperationResult();
@@ -90,8 +105,8 @@ namespace ManagmentSystem.Application.RegisterApp
             if (register == null)
                 return result.Failed(ApplicationMessages.RecordNotFound);
 
-      
-            var entity = new Register(register.Id,register.PeopleId,register.TermClassId);
+
+            var entity = new Register(register.Id, register.PeopleId, register.TermClassId);
             _ReRepository.Delete(entity);
             _ReRepository.SaveChanges();
             return result.Succeeded();
@@ -103,5 +118,7 @@ namespace ManagmentSystem.Application.RegisterApp
         {
             _ReRepository.SaveChanges();
         }
+
+
     }
 }

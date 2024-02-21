@@ -18,6 +18,8 @@ namespace ManagmentSystem.Application.Contract.RegisterIn.Interface
         RegisterationViewModel GetRegistrationItemDetail(long id);
 
         OperationResult AddRegistration(AddRegisteration entity);
+       
+        OperationResult AddRegistrationRange(List<AddRegisteration> entity);
 
         OperationResult EditRegistration(EditRegisteration entity);
 

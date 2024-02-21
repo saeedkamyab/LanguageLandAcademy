@@ -21,6 +21,8 @@ namespace ZeroFramework.Domain.BaseInterface
 
         void Create(TEntity entity);
 
+        void CreateRange(List<TEntity> entity);
+
         void Update(TEntity entity);
 
         bool Delete(TEntity entity);
