@@ -15,8 +15,11 @@
 .icon-print:before { content: '\e80d'; } /* '' */
 .icon-vcard:before { content: '\e80e'; } /* '' */
 .icon-search:before { content: '\e80f'; } /* '' */
+.icon-logout:before { content: '\e810'; } /* '' */
 .icon-arrows-cw:before { content: '\e811'; } /* '' */
+.icon-table:before { content: '\f0ce'; } /* '' */
 .icon-graduation-cap:before { content: '\f19d'; } /* '' */
+.icon-user-secret:before { content: '\f21b'; } /* '' */
 .icon-object-group:before { content: '\f247'; } /* '' */
 .icon-industry:before { content: '\f275'; } /* '' */
 .icon-wpforms:before { content: '\f298'; } /* '' */

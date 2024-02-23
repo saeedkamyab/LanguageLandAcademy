@@ -26,7 +26,7 @@
                 </li>
                 <li>
                     <a asp-area="Administration" asp-page="/Accounts/Role/Index" class="menu-item">
-                        <span class="menuBarIcon"><i class="icon-adult"></i></span>
+                        <span class="menuBarIcon"><i class="icon-user-secret"></i></span>
                         <span class="items">نقش ها</span>
                     </a>
                 </li>
@@ -46,16 +46,11 @@
 
                 <li>
                     <a asp-area="Administration" asp-page="/Managment/TermClass/Index" class="menu-item">
-                        <span class="menuBarIcon"><i class="icon-adult"></i></span>
+                        <span class="menuBarIcon"><i class="icon-object-group"></i></span>
                         <span class="items">کلاسبندی</span>
                     </a>
                 </li>
-                <li>
-                    <a asp-area="Administration" asp-page="/Managment/Register/Index" class="menu-item">
-                        <span class="menuBarIcon"><i class="icon-adult"></i></span>
-                        <span class="items">ثبت نام در دوره / ترم</span>
-                    </a>
-                </li>
+              
                 <li>
                     <a asp-area="Admin" asp-page="/Certificates/Index" class="menu-item">
                         <span class="menuBarIcon"><i class="icon-vcard"></i></span>
@@ -70,24 +65,19 @@
                     </a>
                 </li>
         
-                <li>
+              @*   <li>
                     <a asp-area="Admin" asp-page="/Users/Index" class="menu-item">
                         <span class="menuBarIcon"><i class="icon-blogger"></i></span>
                         <span class="items">بلاگ</span>
                     </a>
-                </li>
+                </li> *@
+
                 <li>
                     <a asp-page="/Login" asp-page-handler="Logout" class="menu-item">
-                        <span class="menuBarIcon"><i class="icon-blogger"></i></span>
+                        <span class="menuBarIcon"><i class="icon-logout"></i></span>
                         <span class="items">خروج</span>
                     </a>
                 </li>
-                @*  <li>
-                <a href="#" class="menu-item">
-                <span class="icon"><i class="icon-adult"></i></span>
-                <span class="items">تنظیمات</span>
-                </a>
-                </li> *@
             </ul>
         </div>
     </div>

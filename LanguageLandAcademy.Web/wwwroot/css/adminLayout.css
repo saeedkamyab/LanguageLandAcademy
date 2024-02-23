@@ -37,7 +37,7 @@ body {
 }
 
 .wrapper .sideBar {
-    background-color: #6f5cc3;
+    background-color: #2f3542;
     position: fixed;
     top: 0;
     right: 0;
@@ -95,7 +95,7 @@ body {
             /*link hover*/
             .wrapper .sideBar ul li a:hover,
             .wrapper .sideBar ul li a.active {
-                background-color: #7d6cc9;
+                background-color: #ff4757;
                 /*   border-right: 2px solid #f5f6fa;*/
             }
 
@@ -198,4 +198,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 180%;
+}
+
+.btn-watermelon {
+    background-color: #ff4757
 }

@@ -26,8 +26,11 @@
 .icon-print { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80d;&nbsp;'); }
 .icon-vcard { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80e;&nbsp;'); }
 .icon-search { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe80f;&nbsp;'); }
+.icon-logout { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe810;&nbsp;'); }
 .icon-arrows-cw { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe811;&nbsp;'); }
+.icon-table { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0ce;&nbsp;'); }
 .icon-graduation-cap { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf19d;&nbsp;'); }
+.icon-user-secret { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf21b;&nbsp;'); }
 .icon-object-group { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf247;&nbsp;'); }
 .icon-industry { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf275;&nbsp;'); }
 .icon-wpforms { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf298;&nbsp;'); }

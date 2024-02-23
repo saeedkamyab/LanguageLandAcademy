@@ -13,12 +13,16 @@
 
 
 
-<div class="row mt-4" id="ProductCategoriesDiv">
+<div class="row mt-4">
     <div class="col-md-12">
         <div class="panel panel-default">
-            <a class="btn btn-success m-3" asp-page="Create">اضافه کردن پیش ثبت نامی جدید</a>
+            <a class="btn btn-sm btn-watermelon text-light" asp-page="Create">
+                <i class="icon-plus-circled"></i>
+                <span>اضافه کردن پیش ثبت نامی جدید</span>
+            </a>
+            <hr class="mt-3 mb-3" />
             <div class="card">
-                <div class="card-header">لیست پیش ثبت نامی ها</div>
+                <div class="card-header text-light bg-secondary">لیست پیش ثبت نامی ها</div>
                 <div class="card-body p-0">
                     <table id="datatable" class="table table-striped table-bordered m-0">
                         <thead>
@@ -44,29 +48,34 @@
                                     <td>@item.LastUpdate</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a class="btn tableBtn" asp-page="Edit" asp-route-Id="@item.Id"
+                                            <a class="btn btn-outline-warning btn-sm ms-2" asp-page="Edit" asp-route-Id="@item.Id"
                                                data-toggle="tooltip" data-placement="top" title="ویرایش">
                                                 <i class="icon-edit"></i>
+                                                <span>ویرایش</span>
                                             </a>
+
+                                            
                                             @if (!item.IsRemoved)
                                             {
                                                 <form method="post">
-                                                    <button type="submit" class="btn tableBtn"
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"
                                                             asp-page-handler="Delete"
                                                             asp-route-id="@item.Id"
                                                             data-toggle="tooltip" data-placement="top" title="حذف">
                                                         <i class="icon-trash-empty"></i>
+                                                        <span>حذف</span>
                                                     </button>
                                                 </form>
                                             }
                                             else
                                             {
                                                 <form method="post">
-                                                    <button type="submit" class="btn tableBtn"
+                                                    <button type="submit" class="btn btn-outline-primary btn-sm"
                                                             asp-page-handler="Restore"
                                                             asp-route-id="@item.Id"
                                                             data-toggle="tooltip" data-placement="top" title="بازیابی">
                                                         <i class="icon-arrows-cw"></i>
+                                                        <span>بازیابی</span>
                                                     </button>
                                                 </form>
                                             }

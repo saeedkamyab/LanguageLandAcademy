@@ -9,28 +9,21 @@
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            <a class="btn btn-success btn-lg" asp-page="Create">ایجاد نقش جدید</a>
+            <a class="btn btn-sm btn-watermelon text-light" asp-page="Create">
+                <i class="icon-plus-circled"></i>
+                <span>ایجاد نقش جدید</span>
+            </a>
         </p>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="card">
-        
-            </div>
-
-        </div>
-    </div>
-</div>
+<hr />
 
 <div class="row mt-4" id="ProductCategoriesDiv">
     <div class="col-md-12">
         <div class="panel panel-default">
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-light bg-secondary">
                     لیست نقش ها (@Model.roles.Count)
                 </div>
                 <div class="card-body p-0">
@@ -51,9 +44,10 @@
                                     <td>@item.Name</td>  
                                     <td>@item.CreationDate</td>
                                     <td>
-                                        <a class="btn btn-warning waves-effect waves-light m-b-5"
-                                           asp-page="Edit" asp-route-Id="@item.Id">
-                                            <i class="fa fa-edit"></i> ویرایش
+                                        <a class="btn btn-outline-warning btn-sm" asp-page="Edit" asp-route-Id="@item.Id"
+                                           data-toggle="tooltip" data-placement="top" title="ویرایش">
+                                            <i class="icon-edit"></i>
+                                            <span>ویرایش</span>
                                         </a>
                                     </td>
                                 </tr>
