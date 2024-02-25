@@ -1,4 +1,5 @@
 ﻿using ManagmentSystem.Domain.LevelAgg;
+using ManagmentSystem.Domain.PresentAbsentAgg;
 using ManagmentSystem.Domain.RegisterInAgg;
 using ManagmentSystem.Domain.TemporaryRegisterAgg;
 using ManagmentSystem.Domain.TermClassAgg;
@@ -13,6 +14,8 @@ namespace ManagmentSystem.Infrastructure.EfCore
         public DbSet<Level> Levels { get; set; }
 
         public DbSet<TemporaryRegister> TemporaryRegisters { get; set; }
+
+        public DbSet<AbsentPresent> AbsentPresents { get; set; }
 
         public DbSet<TermClass> TermClasses { get; set; }
 

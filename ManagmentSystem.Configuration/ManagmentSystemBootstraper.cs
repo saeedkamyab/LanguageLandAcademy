@@ -1,4 +1,6 @@
-﻿using ManagmentSystem.Application.Contract.Level.Interface;
+﻿using ManagmentSystem.Application.AbsentPresentApp;
+using ManagmentSystem.Application.Contract.AbsentPresent.Interface;
+using ManagmentSystem.Application.Contract.Level.Interface;
 using ManagmentSystem.Application.Contract.RegisterIn.Interface;
 using ManagmentSystem.Application.Contract.TemporaryRegister.Interface;
 using ManagmentSystem.Application.Contract.TermClass.Interface;
@@ -10,6 +12,7 @@ using ManagmentSystem.Application.TermClassApp;
 using ManagmentSystem.Application.TuitionApp;
 using ManagmentSystem.Configuration.Permissions;
 using ManagmentSystem.Domain.LevelAgg.Interface;
+using ManagmentSystem.Domain.PresentAbsentAgg.Interface;
 using ManagmentSystem.Domain.RegisterInAgg.Interface;
 using ManagmentSystem.Domain.TemporaryRegisterAgg.Interface;
 using ManagmentSystem.Domain.TermClassAgg.Interface;
@@ -43,6 +46,9 @@ namespace ManagmentSystem.Configuration
 
             services.AddTransient<IRegisterInApplication, RegisterApplication>();
             services.AddTransient<IRegisterRepository, RegisterRepository>();
+
+            services.AddTransient<IAbsentPresentApplication, AbsentPresentApplication>();
+            services.AddTransient<IAbsentPresentRepository, AbsentPresentRepository>();
 
             services.AddDbContext<ManagmentSystemContext>(x => x.UseSqlServer(connectionString));
         }

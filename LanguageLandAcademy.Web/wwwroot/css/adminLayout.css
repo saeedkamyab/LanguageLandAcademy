@@ -35,7 +35,9 @@ html {
 body {
     background-color: #f5f6fa;
 }
-
+a{
+text-decoration:none;
+}
 .wrapper .sideBar {
     background-color: #2f3542;
     position: fixed;
@@ -199,7 +201,58 @@ body {
     height: 60px;
     border-radius: 180%;
 }
-
+.profilePhotoSidbar {
+    width: 60px;
+    height: 60px;
+    border-radius: 180%;
+    border-color: #ff4757;
+    border: solid 3px #ff4757;
+    box-shadow: 1px 1px 2px #eb4d4b, 0 0 25px #ff6b81, 0 0 5px #ff4757;
+}
 .btn-watermelon {
     background-color: #ff4757
+}
+    .btn-watermelon:hover {
+        background-color: #ff7979;
+    }
+.btn-outline-watermelon {
+    color: #ff7979;
+    border-color: #ff7979;
+}
+    .btn-outline-watermelon:hover {
+        color: white;
+        border-color: #ff4757;
+        background-color: #ff4757
+    }
+.btn-outline-MattPurple {
+    color: #9c88ff;
+    border-color: #9c88ff;
+}
+    .btn-outline-MattPurple:hover {
+        color: #fff;
+        background-color: #8c7ae6;
+        border-color: #8c7ae6;
+    }
+    .noSpace{
+        margin:-10px;
+    }
+.registerdPeople {
+    background-color: #f1f2f6;
+    border: solid 2px #57606f;
+    color: black;
+    width: 180px;
+    height: 65px;
+}
+    .registerdPeople:hover {
+        background-color: #ff4757;
+        color:white;
+        border: solid 1px #ff6b81;
+        width: 180px;
+        height: 65px;
+        cursor:pointer;
+        
+    }
+.RegisteredprofilePhoto {
+    width: 60px;
+    height: 63px;
 }

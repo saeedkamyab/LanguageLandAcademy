@@ -1,4 +1,5 @@
 ﻿using ManagmentSystem.Domain.LevelAgg;
+using ManagmentSystem.Domain.PresentAbsentAgg;
 using ManagmentSystem.Domain.TermClassAgg;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace ManagmentSystem.Domain.RegisterInAgg
         public long TermClassId { get; private set; }
         public TermClass TermClass { get; private set; }
 
+        public List<AbsentPresent>absentPresent { get; private set; }
 
         public Register(long peopleId, long termClassId)
         {

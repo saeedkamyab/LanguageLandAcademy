@@ -9,11 +9,11 @@
 
 @if (currentAccount.ProfilePhoto == "unImage.png")
 {
-    <img src="~/images/unImage.png" class="profilePhoto" />
+    <img src="~/images/unImage.png" class="profilePhotoSidbar" />
 }
 else
 {
-    <img src="~/ProfilePictures/@currentAccount.ProfilePhoto" class="profilePhoto" />
+    <img src="~/ProfilePictures/@currentAccount.ProfilePhoto" class="profilePhotoSidbar" />
 }
-<h3>@currentAccount.Fullname</h3>
-<p>@currentAccount.Role</p> 
+<h3 >@currentAccount.Fullname</h3>
+<p >@currentAccount.Role</p> 

@@ -31,6 +31,11 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.HasOne(x => x.TermClass)
                 .WithMany(x => x.Registers)
                 .HasForeignKey(x => x.TermClassId);
+
+
+            builder.HasMany(x => x.absentPresent)
+              .WithOne(x => x.Register)
+              .HasForeignKey(x => x.RegisterId);
         }
     }
 }
