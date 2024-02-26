@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Administration\Pages\Managment\AbsentPresent\" />
     <Folder Include="wwwroot\ProfilePictures\" />
   </ItemGroup>
 

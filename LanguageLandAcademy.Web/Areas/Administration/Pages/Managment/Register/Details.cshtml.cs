@@ -8,12 +8,12 @@ using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 
 namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.RegisterDetails
 {
-    public class IndexModel : PageModel
+    public class Details : PageModel
     {
         public readonly IAccountApplication _accountApplication;
         public readonly IRegisterInApplication _reApplication;
 
-        public IndexModel(IAccountApplication accountApplication, IRegisterInApplication reApplication)
+        public Details(IAccountApplication accountApplication, IRegisterInApplication reApplication)
         {
             _accountApplication = accountApplication;
             _reApplication = reApplication;
