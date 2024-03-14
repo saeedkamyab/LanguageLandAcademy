@@ -1,8 +1,10 @@
 ﻿using LLaQuery.Contracts.Account;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace AccountManagment.PresentaionApi
 {
+    [Microsoft.AspNetCore.Authorization.Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccListController : ControllerBase

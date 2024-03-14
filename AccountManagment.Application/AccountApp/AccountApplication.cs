@@ -116,6 +116,7 @@ namespace AccountManagment.Application.AccountApp
             if (account == null)
                 return operation.Failed(ApplicationMessages.WrongUserPass);
 
+           
             var result = _passHasher.Check(account.Password, command.Password);
             if (!result.Verified)
                 return operation.Failed(ApplicationMessages.WrongUserPass);

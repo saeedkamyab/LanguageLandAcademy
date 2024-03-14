@@ -29,6 +29,7 @@ namespace LanguageLandAcademy.Web.Pages
 
         public IActionResult OnPostLogin()
         {
+            //username : saeedkamyab  pass: 1234
             var result = _accApp.Login(login);
             if (result.IsSucceeded)
                 return RedirectToPage("/Index", new { area = "Administration" });
