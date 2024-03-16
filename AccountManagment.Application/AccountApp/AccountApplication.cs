@@ -4,6 +4,13 @@ using AccountManagment.Domain.AccountAgg.Interface;
 using AccountManagment.Domain.AccountAgg;
 using ZeroFramework.Application.Common;
 using AccountManagment.Domain.RoleAgg.Interface;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Reflection.Metadata;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Security.Principal;
 
 namespace AccountManagment.Application.AccountApp
 {
@@ -30,25 +37,105 @@ namespace AccountManagment.Application.AccountApp
             _authHelper = authHelper;
         }
 
+        //public OperationResult Register(RegisterAccount command)
+        //{
+        //    OperationResult result = new OperationResult();
+
+        //    var pass = command.Password;
+
+        //    pass = _passHasher.Hash(pass);
+
+
+        //    var account = new Account(command.FullName, command.FName,
+        //        command.NationalCode, command.Gender, null, command.RoleId,
+        //        command.UserName, pass, null,command.Description);
+
+        //    _accountRep.Create(account);
+
+        //    _accountRep.SaveChanges();
+
+        //    return result.Succeeded();
+        //}
+
+        public class AppUser
+        {
+
+            public long AppUserId { get; set; }
+
+            public string AppUserName { get; set; }
+
+            public string AppUserLastName { get; set; }
+
+            public string AppUserFName { get; set; }
+
+            public string AppUserMeli { get; set; }
+
+            public string AppUserPassword { get; set; }
+
+            public bool AppUserGender { get; set; }
+
+            public string? AppUserPicture { get; set; }
+
+            public string? AppUserAddress { get; set; }
+
+            public DateTime? AppUserAddDate { get; set; }
+
+            public DateTime? AppUserEditDate { get; set; }
+
+            public string? AppUserDescription { get; set; }
+
+            public string AppUserRole { get; set; }
+
+        }
+
+
         public OperationResult Register(RegisterAccount command)
         {
-            OperationResult result = new OperationResult();
 
-            var pass = command.Password;
+         OperationResult result = new OperationResult();
 
+            var pass = "@Pass_1234";
+            
             pass = _passHasher.Hash(pass);
 
-            
-            var account = new Account(command.FullName, command.FName,
-                command.NationalCode, command.Gender, null, command.RoleId,
-                command.UserName, pass, null,command.Description);
 
-            _accountRep.Create(account);
+            string jsonText = File.ReadAllText("mydata.json");
+
+            List<AppUser> appusers = JsonConvert.DeserializeObject<List<AppUser>>(jsonText);
+
+            List<Account> acc=new List<Account>();
+
+            int i = 0;
+            foreach (var item in appusers)
+            {
+                var fullname = item.AppUserName + " " + item.AppUserLastName;
+                var username = "@User_" +i+ DateTime.Now.Second + DateTime.Now.Minute + DateTime.Now.Hour + DateTime.Now.Month;
+
+                var account = new Account(fullname, item.AppUserFName,
+                         item.AppUserMeli, item.AppUserGender, item.AppUserAddress, 2,
+                        username, pass, null, "");
+                acc.Add(account);
+              
+                i++;
+            }
+            _accountRep.CreateRange(acc);
 
             _accountRep.SaveChanges();
+            //var account = new Account(command.FullName, command.FName,
+            //    command.NationalCode, command.Gender, null, command.RoleId,
+            //    command.UserName, pass, null, command.Description);
+
+            //_accountRep.Create(account);
+
+            //_accountRep.SaveChanges();
 
             return result.Succeeded();
         }
+
+
+
+
+
 
         public OperationResult Edit(EditAccount command)
         {

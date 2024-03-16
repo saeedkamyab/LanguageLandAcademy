@@ -2,8 +2,8 @@
 {
     public static class Roles
     {
-        public const string Administrator = "2";
-        public const string Clerck = "20";
+        public const string Administrator = "1";
+        public const string Clerck = "2";
         public const string Teacher = "3";
         public const string Student = "4";
         
@@ -11,9 +11,9 @@
         {
             switch (id)
             {
-                case 2:
+                case 1:
                     return "مدیر ارشد";
-                case 20:
+                case 2:
                     return "کارمند";
                 case 3:
                     return "مدرس";
