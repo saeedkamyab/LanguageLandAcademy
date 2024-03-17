@@ -1,4 +1,5 @@
-﻿using ManagmentSystem.Domain.LevelAgg;
+﻿using ManagmentSystem.Domain.HomeworksExams;
+using ManagmentSystem.Domain.LevelAgg;
 using ManagmentSystem.Domain.PresentAbsentAgg;
 using ManagmentSystem.Domain.RegisterInAgg;
 using ManagmentSystem.Domain.TemporaryRegisterAgg;
@@ -22,6 +23,8 @@ namespace ManagmentSystem.Infrastructure.EfCore
         public DbSet<Register> Registers { get; set; }
 
         public DbSet<Tuition> Tuitions { get; set; }
+
+        public DbSet<HomeworkExam> HomeworkExams { get; set; }
 
       
 

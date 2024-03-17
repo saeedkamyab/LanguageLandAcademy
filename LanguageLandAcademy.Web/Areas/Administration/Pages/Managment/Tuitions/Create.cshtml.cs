@@ -14,22 +14,20 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
 {
     public class CreateModel : PageModel
     {
-        private readonly IAccountApplication _accountApp;
         private readonly ITuitionApplication _tuitionApp;
+        public long StudentId { get; set; }
 
-        public CreateModel(IAccountApplication accApp, ITuitionApplication tuApp)
+        public CreateModel(ITuitionApplication tuApp)
         {
-            _accountApp = accApp;
             _tuitionApp = tuApp;
         }
         [BindProperty]
-        public CreateRoom tuition {  get; set; }
-        public List<AccountViewModel> students {  get; set; }
+        public CreateRoom tuition { get; set; }
 
         [NeedsPermission(ManagmentSystemPermissons.CreateTuition)]
-        public void OnGet()
+        public void OnGet(long studentid)
         {
-           students = _accountApp.GetAccounts();
+            StudentId = studentid;
         }
         public JsonResult OnPost()
         {

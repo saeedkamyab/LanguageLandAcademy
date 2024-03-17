@@ -153,5 +153,7 @@ namespace AccountManagment.Application.AccountApp
             return _accountRep.Search(searchModel);
 
         }
+
+       
     }
 }

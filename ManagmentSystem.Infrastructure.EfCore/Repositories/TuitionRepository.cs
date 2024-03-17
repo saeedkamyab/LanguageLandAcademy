@@ -31,6 +31,20 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
             //throw new NotImplementedException();
         }
 
-     
+        public List<AllTuitions> GetAllTuitionsByStId(long id)
+        {
+            return _context.Tuitions.Select(tu => new AllTuitions
+            {
+                Id = tu.Id,
+                OwnerId = tu.OwnerId,
+                CreateDate = tu.CreateDate.ToString(),
+                TuitionAmount = tu.TuitionAmount,
+                TuitionDescription = tu.TuitionDescription,
+                TuitionPayDate = tu.TuitionPayDate.ToString(),
+                TuitionStatus = tu.TuitionStatus,
+                IsRemoved = tu.IsRemoved,
+                LastUpdate = tu.LastUpdate.ToString()
+            }).Where(tu => tu.OwnerId == id).ToList();
+        }
     }
 }

@@ -46,6 +46,21 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
             }).Where(x => x.TermClassId == id).ToList();
         }
 
+        public EditRegisteration GetRegisterationEditDetails(long id)
+        {
+            return _context.Registers.Select(Re => new EditRegisteration
+            {
+                Id = Re.Id,
+                Reading = Re.Reading,
+                Listening = Re.Listening,
+                Writting = Re.Writting,
+                Speaking = Re.Speaking,
+                MidTerm = Re.MidTerm,
+                Final = Re.Final
+
+            }).FirstOrDefault(x => x.Id == id);
+        }
+
         public RegisterationViewModel GetRegisterationItemDetails(long id)
         {
             return _context.Registers.Select(Re => new RegisterationViewModel
@@ -58,7 +73,6 @@ namespace ManagmentSystem.Infrastructure.EfCore.Repositories
                 LastUpdate = Re.LastUpdate.ToString()
             }).FirstOrDefault(x => x.Id == id);
         }
-
         public List<GetAllRegisteration> GetUnDeletedRegisteration()
         {
             throw new NotImplementedException();

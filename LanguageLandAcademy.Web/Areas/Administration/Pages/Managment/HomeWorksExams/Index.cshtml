@@ -1,29 +1,17 @@
 ﻿@page
-@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions.IndexModel
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.HomeWorksExams.IndexModel
 @{
     Layout = "Shared/_AdminLayout";
-    ViewData["title"] = "مدیریت شهریه ها";
+    ViewData["title"] = "مدیریت تکالیف و آزمون ها";
 }
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            @if (@Model.StudentId != 0)
-            {
-                <a class="btn btn-sm btn-watermelon text-light" asp-page="Create" asp-area="Administration"
-                   asp-route-studentid="@Model.StudentId">
-                    <i class="icon-plus-circled"></i>
-                    <span>ایجاد فیش</span>
-                </a>
-            }
-            else
-            {
-                <a class="btn btn-sm btn-watermelon text-light" asp-page="/Accounts/Account/Index" asp-area="Administration"
-                  >
-                    <i class="icon-plus-circled"></i>
-                    <span>ایجاد فیش</span>
-                </a>
-            }
+            <a class="btn btn-sm btn-watermelon text-light" asp-page="Create" asp-area="Administration">
+                <i class="icon-plus-circled"></i>
+                <span>ایجاد آزمون / تکلیف جدید</span>
+            </a>
         </p>
     </div>
 </div>
@@ -35,25 +23,27 @@
 
             <div class="card">
                 <div class="card-header bg-secondary text-light">
-                    لیست فیش ها
+                    لیست سوالات
                 </div>
                 <div class="card-body p-0">
                     <table id="datatable" class="table table-striped table-bordered m-0">
                         <thead>
                             <tr>
-                                <th>شناسه رسید مالی</th>
-                                <th>شناسه فرد</th>
-                                <th>مبلغ</th>
-                                <th>تاریخ</th>
-                                <th>وضعیت</th>
-                                <th>تاریخ پرداخت</th>
+                                <th>شناسه</th>
+                                <th>سوال</th>
+                                <th>گزینه A</th>
+                                <th>گزینه B</th>
+                                <th>گزینه C</th>
+                                <th>گزینه D</th>
+                                <th>پاسخ</th>
+                                <th>جلسه</th>
                                 <th>توضیحات</th>
                                 <th>عملیات</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach (var item in Model.tuitions)
+                      @*       @foreach (var item in Model.tuitions)
                             {
                                 <tr>
                                     <td>@item.Id</td>
@@ -91,10 +81,11 @@
                                         }
                                     </td>
                                 </tr>
-                            }
+                            } *@
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+

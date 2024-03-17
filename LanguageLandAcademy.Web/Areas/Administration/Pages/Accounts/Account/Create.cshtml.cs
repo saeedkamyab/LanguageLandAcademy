@@ -27,7 +27,6 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Accounts.Account
         public void OnGet()
         {
             Roles = new SelectList(_roleApplication.List(), "Id", "Name");
-            var result = _accountApplication.Register(account);
         }
 
         public JsonResult OnPost()

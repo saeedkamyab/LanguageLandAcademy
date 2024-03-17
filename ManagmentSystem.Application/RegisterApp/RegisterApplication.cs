@@ -119,6 +119,9 @@ namespace ManagmentSystem.Application.RegisterApp
             _ReRepository.SaveChanges();
         }
 
-
+        public EditRegisteration GetRegistrationEditDetail(long id)
+        {
+                return _ReRepository.GetRegisterationEditDetails(id);
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace AccountManagment.Application.Contracts.AccountAppContract.Interface
         OperationResult Register(RegisterAccount command);
 
         List<AccountViewModel> Search(AccountSearchModel searchModel);
+
+       
     
     }
 }

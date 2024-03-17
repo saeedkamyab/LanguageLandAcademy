@@ -26,6 +26,7 @@ namespace ManagmentSystem.Infrastructure.EfCore.Mapping
             builder.Property(x => x.IsRemoved);
 
             builder.HasMany(x=>x.TermClasses).WithOne(x => x.Level).HasForeignKey(x=>x.Id);
+            builder.HasMany(x=>x.HomeworkExams).WithOne(x => x.Level).HasForeignKey(x=>x.Id);
         }
     }
 }

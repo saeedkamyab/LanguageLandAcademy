@@ -20,6 +20,9 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
     public class IndexModel : PageModel
     {
         private readonly ITuitionApplication _tuApp;
+
+        public long StudentId { get; set; }
+
         public IndexModel(ITuitionApplication tuApp)
         {
             _tuApp = tuApp;
@@ -27,9 +30,13 @@ namespace LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Tuitions
         public List<AllTuitions> tuitions;
 
         [NeedsPermission(ManagmentSystemPermissons.TuitionsList)]
-        public void OnGet()
+        public void OnGet(long studentid)
         {
-            tuitions = _tuApp.GetAllTuitions();
+            if (studentid == 0)
+                tuitions = _tuApp.GetAllTuitions();
+            else
+                tuitions = _tuApp.GetAllTuitionsByStId(studentid);
+            StudentId = studentid;
         }
         public IActionResult OnGetPay(long Id)
         {

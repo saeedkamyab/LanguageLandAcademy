@@ -12,14 +12,15 @@
 
             <div class=" form">
                 <form class="cmxform form-horizontal tasi-form"  method="post"  novalidate="novalidate">
-
-                    <select class="form-select select2" aria-label="Default select example"
+                    <input class="form-control" type="hidden" asp-for="tuition.TuitionOwner"
+                    value="@Model.StudentId"/>
+                   @*  <select class="form-select single-select-field" data-placeholder="Choose one thing"
                             asp-for="tuition.TuitionOwner">
                         @foreach (var item in Model.students)
                         {
                             <option value="@item.Id">@item.Id-@item.FullName-@item.FName-@item.NationalCode</option>
                         }
-                    </select>
+                    </select> *@
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-2">مبلغ</label>
@@ -48,3 +49,4 @@
         </div>
     </div>
 </div>
+

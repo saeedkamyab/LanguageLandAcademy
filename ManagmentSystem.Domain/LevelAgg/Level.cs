@@ -1,4 +1,5 @@
-﻿using ManagmentSystem.Domain.TermClassAgg;
+﻿using ManagmentSystem.Domain.HomeworksExams;
+using ManagmentSystem.Domain.TermClassAgg;
 using ZeroFramework.Domain;
 
 namespace ManagmentSystem.Domain.LevelAgg
@@ -18,6 +19,7 @@ namespace ManagmentSystem.Domain.LevelAgg
         //-----------------------------------------------------------------------
 
         public List<TermClass> TermClasses { get; private set; }
+        public List<HomeworkExam> HomeworkExams { get; private set; }
 
 
         //========================================================================

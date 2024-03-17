@@ -12,8 +12,10 @@ namespace ManagmentSystem.Application.Contract.RegisterIn.Interface
     public interface IRegisterInApplication
     {
         List<GetAllRegisteration> GetAllRegisteration();
-
+       
         List<GetAllRegisteration>GetAllReByTcId(long tcId);
+
+        EditRegisteration GetRegistrationEditDetail(long id);
 
         RegisterationViewModel GetRegistrationItemDetail(long id);
 

@@ -1,0 +1,68 @@
+﻿@page
+@model LanguageLandAcademy.Web.Areas.Administration.Pages.Managment.Certificate.CertificateModel
+@{
+}
+
+<h1>ثبت کارنامه این ترم</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Register.Id"/>
+
+            <div class="form-group">
+                <label asp-for="Register.Reading" class="control-label"></label>
+                <input asp-for="Register.Reading" class="form-control" />
+                <span asp-validation-for="Register.Reading" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Register.Writting" class="control-label"></label>
+                <input asp-for="Register.Writting" class="form-control" />
+                <span asp-validation-for="Register.Writting" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Register.Listening" class="control-label"></label>
+                <input id="nationalCode" asp-for="Register.Listening" class="form-control" />
+                <span asp-validation-for="Register.Listening" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Register.Speaking" class="control-label"></label>
+                <input id="nationalCode" asp-for="Register.Speaking" class="form-control" />
+                <span asp-validation-for="Register.Speaking" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Register.MidTerm" class="control-label"></label>
+                <input id="nationalCode" asp-for="Register.MidTerm" class="form-control" />
+                <span asp-validation-for="Register.MidTerm" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Register.Final" class="control-label"></label>
+                <input id="nationalCode" asp-for="Register.Final" class="form-control" />
+                <span asp-validation-for="Register.Final" class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group m-3">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

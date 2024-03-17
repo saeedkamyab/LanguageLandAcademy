@@ -41,6 +41,11 @@ namespace ManagmentSystem.Application.TuitionApp
             return _tuRep.GetAllTuitions();
         }
 
+        public List<AllTuitions> GetAllTuitionsByStId(long id)
+        {
+            return _tuRep.GetAllTuitionsByStId(id);
+        }
+
         public OperationResult PayTuition(long Id)
         {
             OperationResult result = new OperationResult();

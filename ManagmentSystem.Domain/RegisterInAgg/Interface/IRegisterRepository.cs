@@ -11,7 +11,10 @@ namespace ManagmentSystem.Domain.RegisterInAgg.Interface
 {
     public interface IRegisterRepository:IBaseRepository<long, Register>
     {
+
         List<GetAllRegisteration> GetAllRegisteration();
+
+        EditRegisteration GetRegisterationEditDetails(long id);
 
         List<GetAllRegisteration> GetUnDeletedRegisteration();
 

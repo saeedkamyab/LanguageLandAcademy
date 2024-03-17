@@ -13,6 +13,8 @@ namespace ManagmentSystem.Application.Contract.Tuition.Interface
 
 
         List<AllTuitions> GetAllTuitions();
+
+        List<AllTuitions> GetAllTuitionsByStId(long id);
       
         OperationResult CreateTuition(CreateRoom createTuition);
         

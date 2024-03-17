@@ -38,7 +38,7 @@ namespace ManagmentSystem.Configuration.Permissions
 
         #endregion
 
-        #region TermClass Permissions
+        #region Register Permissions
 
         public const int RegisterList = 15;
         public const int CreateRegister = 16;

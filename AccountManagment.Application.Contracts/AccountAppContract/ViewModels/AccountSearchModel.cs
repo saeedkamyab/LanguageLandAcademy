@@ -10,5 +10,9 @@ namespace AccountManagment.Application.Contracts.AccountAppContract.ViewModels
         public string Username { get; set; }
 
         public int    RoleId { get; set; }
+
+        public int PageIndex {  get; set; }
+
+        public int PageSize {  get; set; }
     }
 }

@@ -68,6 +68,12 @@ namespace AccountManagment.Infrastructure.EfCore.Repositories
                 UserName = x.UserName,
                 CreationDate = x.CreateDate.ToString()
             });
+    
+        //            .OrderBy(on => on.Name)
+        //.Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
+        //.Take(ownerParameters.PageSize)
+        //.ToList();
+
 
             if (!string.IsNullOrWhiteSpace(searchModel.Fullname))
                 query = query.Where(x => x.FullName.Contains(searchModel.Fullname));
